@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private int _money = 0;
-    public int initialMoney = 10;
+    private float _money = 0;
+    public float initialMoney = 10;
     
     private void Awake()
     {
@@ -24,12 +24,12 @@ public class GameController : MonoBehaviour
         Events.OnLevelCompleted -= OnLevelCompleted;
     }
 
-    private void OnSetMoney(int money)
+    private void OnSetMoney(float money)
     {
         _money = money;
     }
 
-    private int OnGetMoney()
+    private float OnGetMoney()
     {
         return _money;
     }

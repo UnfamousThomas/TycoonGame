@@ -7,4 +7,7 @@ public static class Events
 
     public static event Func<int> OnRequestMoney;
     public static int RequestMoney() => OnRequestMoney?.Invoke() ?? 0;
+
+    public static event Action OnLevelCompleted;
+    public static void LevelCompleted() => OnLevelCompleted?.Invoke();
 }

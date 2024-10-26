@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     {
         Events.OnSetMoney += OnSetMoney;
         Events.OnRequestMoney += OnGetMoney;
+        Events.OnLevelCompleted += OnLevelCompleted;
     }
 
     public void Start()
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
     {
         Events.OnSetMoney -= OnSetMoney;
         Events.OnRequestMoney -= OnGetMoney;
+        Events.OnLevelCompleted -= OnLevelCompleted;
     }
 
     private void OnSetMoney(int money)
@@ -30,6 +32,15 @@ public class GameController : MonoBehaviour
     private int OnGetMoney()
     {
         return _money;
-    } 
-    
+    }
+
+    private void OnLevelCompleted()
+    {
+        // TODO next level menu, if there are no levels left, make GameCompleted display something
+    }
+
+    private void GameCompleted()
+    {
+        
+    }
 }

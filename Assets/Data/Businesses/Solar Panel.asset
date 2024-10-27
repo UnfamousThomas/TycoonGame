@@ -19,5 +19,6 @@ MonoBehaviour:
   amountOfUpgrades: 3
   baseMoneyProduction: 10
   moneyProductionStep: 3
-  businessPrefab: {fileID: 4393733913066814621, guid: eb79bda838e7ad948af4abdadca8e604, type: 3}
-  icon: {fileID: 0}
+  businessPrefab: {fileID: 5356509741301499797, guid: 64897bbf452c994438904a4b816f7d20, type: 3}
+  icon: {fileID: 21300000, guid: c956c603ce317d1419a21c0acab69301, type: 3}
+  onlyOneAllowed: 0

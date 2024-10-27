@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +9,10 @@ public class BusinessCardPresenter : MonoBehaviour
     
     public TextMeshProUGUI costText;
     public Image iconImage;
+    public GameObject panel;
 
     private Button _button;
+    public GameController GameController;
 
     private void Awake()
     {
@@ -26,6 +29,15 @@ public class BusinessCardPresenter : MonoBehaviour
         Events.OnSetMoney += OnSetMoney;
     }
 
+    private void Update()
+    {
+        if (GameController.isBusinessBuilt(businessData) &&
+            businessData.onlyOneAllowed)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnDestroy()
     {
         Events.OnSetMoney -= OnSetMoney;
@@ -33,6 +45,7 @@ public class BusinessCardPresenter : MonoBehaviour
 
     public void Pressed()
     {
+        panel.SetActive(false);
         Events.SelectBusiness(businessData);
     }
 

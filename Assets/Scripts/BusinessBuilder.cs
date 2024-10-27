@@ -9,9 +9,11 @@ public class BusinessBuilder : MonoBehaviour
     public Color BlockColor;
 
     private BusinessData _currentBusinessData;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         Events.OnBusinessSelected += OnBusinessSelected;
         gameObject.SetActive(false);
     }
@@ -80,6 +82,13 @@ public class BusinessBuilder : MonoBehaviour
     private void OnBusinessSelected(BusinessData data)
     {
         _currentBusinessData = data;
+        _spriteRenderer.sprite = data.icon;
+        Vector3 mousePos = transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = new Vector3(
+            Mathf.Round(mousePos.x - 0.5f) + 0.5f, 
+            Mathf.Round(mousePos.y - 0.5f) + 0.5f, 
+            0);
+        transform.position = mousePos;
         gameObject.SetActive(true);
     }
 
@@ -89,15 +98,14 @@ public class BusinessBuilder : MonoBehaviour
         //Make a note to remove gold from player later when gold is implemented
         //Instantiate a tower prefab at the current position
         //Disable the Tower Builder gameobject
-        
         if (!IsFree(transform.position)) return;
         
         Events.SetMoney(Events.RequestMoney() - _currentBusinessData.cost);
         
-        if (EventSystem.current.IsPointerOverGameObject()) return;
         
         Business business = Instantiate(_currentBusinessData.businessPrefab, transform.position, Quaternion.identity, null);
         business.businessData = _currentBusinessData;
         gameObject.SetActive(false);
+        Events.BuildBusiness(business);
     }
 }

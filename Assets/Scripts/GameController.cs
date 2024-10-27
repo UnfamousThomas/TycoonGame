@@ -8,19 +8,17 @@ public class GameController : MonoBehaviour
     
     private float _money;
     private List<Business> _builtBusinesses = new();
-    public List<Business> initialBusinesses;
+    private float level = 0;
+    private List<BusinessData> _businessData = new();
     
     private void Awake()
     {
         Events.OnSetMoney += OnSetMoney;
         Events.OnRequestMoney += OnGetMoney;
-        Events.OnLevelCompleted += OnLevelCompleted;
+        Events.OnLevelChange += OnLevelCompleted;
         Events.OnGameCompleted += OnGameCompleted;
         Events.OnBusinessBuilt += OnBusinessBuilt;
-        foreach (var initialBusiness in initialBusinesses)
-        {
-            _builtBusinesses.Add(initialBusiness);
-        }
+        Events.OnBusinessUpgraded += onBusinessUpgraded;
     }
 
     public void Start()
@@ -33,9 +31,10 @@ public class GameController : MonoBehaviour
     {
         Events.OnSetMoney -= OnSetMoney;
         Events.OnRequestMoney -= OnGetMoney;
-        Events.OnLevelCompleted -= OnLevelCompleted;
+        Events.OnLevelChange -= OnLevelCompleted;
         Events.OnGameCompleted -= OnGameCompleted;
         Events.OnBusinessBuilt -= OnBusinessBuilt;
+        Events.OnBusinessUpgraded -= onBusinessUpgraded;
     }
 
     private void OnSetMoney(float money)
@@ -48,7 +47,7 @@ public class GameController : MonoBehaviour
         return _money;
     }
 
-    private void OnLevelCompleted()
+    private void OnLevelCompleted(float level)
     {
         // TODO next level menu, if there are no levels left, make GameCompleted display something
     }
@@ -63,7 +62,7 @@ public class GameController : MonoBehaviour
         float money = 0;
         foreach (Business business in _builtBusinesses)
         { 
-            money += business.CurrentMoneyProduction;
+            money += business.getCurrentProduction();
         }
         Events.SetMoney(Events.RequestMoney() + money);
     }
@@ -71,5 +70,26 @@ public class GameController : MonoBehaviour
     private void OnBusinessBuilt(Business business)
     {
         _builtBusinesses.Add(business);
+        if (business.businessData.businessName == "Headquarters")
+        {
+            Events.SetLevel(1);
+        }
+        if (!_businessData.Contains(business.businessData))
+        {
+            _businessData.Add(business.businessData);
+        }
+    }
+
+    private void onBusinessUpgraded(Business business)
+    {
+        if (business.businessData.businessName == "Headquarters")
+        {
+            Events.SetLevel(level+1);
+        }
+    }
+
+    public bool isBusinessBuilt(BusinessData data)
+    {
+        return _businessData.Contains(data);
     }
 }

@@ -12,4 +12,5 @@ public class BusinessData : ScriptableObject
     public float moneyProductionStep; // Same as upgrade step, but 
     public Business businessPrefab;
     public Sprite icon;
+    public bool onlyOneAllowed;
 }

@@ -8,8 +8,8 @@ public static class Events
     public static event Func<float> OnRequestMoney;
     public static float RequestMoney() => OnRequestMoney?.Invoke() ?? 0;
 
-    public static event Action OnLevelCompleted;
-    public static void LevelCompleted() => OnLevelCompleted?.Invoke();
+    public static event Action<float> OnLevelChange;
+    public static void SetLevel(float level) => OnLevelChange?.Invoke(level);
     
     public static event Action OnGameCompleted;
     public static void GameCompleted() => OnGameCompleted?.Invoke();

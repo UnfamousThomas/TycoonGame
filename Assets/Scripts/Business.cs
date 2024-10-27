@@ -7,10 +7,11 @@ public class Business : MonoBehaviour
 {
     public BusinessData businessData;
 
-    public float CurrentMoneyProduction = 1;
-
+    private int level = 1;
+    private float _currentMoneyProduction = 0;
     private void Awake()
     {
+        _currentMoneyProduction = businessData.baseMoneyProduction;
         Events.OnBusinessUpgraded += OnBusinessUpgraded;
     }
 
@@ -21,6 +22,23 @@ public class Business : MonoBehaviour
 
     private void OnBusinessUpgraded(Business business)
     {
-        CurrentMoneyProduction += businessData.moneyProductionStep;
+        _currentMoneyProduction += businessData.moneyProductionStep;
+    }
+
+    private bool isUpgradable(float money)
+    {
+        if (level == businessData.amountOfUpgrades + 1) return false;
+        if (money < calculateNextLevelCost()) return false;
+        return true;
+    }
+
+    private float calculateNextLevelCost()
+    {
+        return businessData.baseUpgradeCost + (level - 1 * businessData.upgradeCostStep);
+    }
+
+    public float getCurrentProduction()
+    {
+        return _currentMoneyProduction;
     }
 }

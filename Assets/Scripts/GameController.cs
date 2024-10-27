@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class GameController : MonoBehaviour
     public float initialMoney = 10;
     
     private float _money;
-    private List<Business> _builtBusinesses;
+    private List<Business> _builtBusinesses = new();
     
     private void Awake()
     {
@@ -57,7 +58,7 @@ public class GameController : MonoBehaviour
     {
         float money = 0;
         foreach (Business business in _builtBusinesses)
-        {
+        { 
             money += business.CurrentMoneyProduction;
         }
         Events.SetMoney(Events.RequestMoney() + money);

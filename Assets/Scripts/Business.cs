@@ -7,7 +7,7 @@ public class Business : MonoBehaviour
 {
     public BusinessData businessData;
 
-    public float CurrentMoneyProduction;
+    public float CurrentMoneyProduction = 1;
 
     private void Awake()
     {

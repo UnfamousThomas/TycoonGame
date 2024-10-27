@@ -37,7 +37,7 @@ public class Business : MonoBehaviour
 
     public float calculateNextLevelCost()
     {
-        return businessData.baseUpgradeCost + (level* businessData.upgradeCostStep);
+        return businessData.baseUpgradeCost + (level-1 * businessData.upgradeCostStep);
     }
 
     public float getCurrentProduction()

@@ -15,10 +15,9 @@ public class GameController : MonoBehaviour
     {
         Events.OnSetMoney += OnSetMoney;
         Events.OnRequestMoney += OnGetMoney;
-        Events.OnLevelChange += OnLevelCompleted;
-        Events.OnGameCompleted += OnGameCompleted;
         Events.OnBusinessBuilt += OnBusinessBuilt;
         Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnLevelChange += onLevelChange;
     }
 
     public void Start()
@@ -31,10 +30,9 @@ public class GameController : MonoBehaviour
     {
         Events.OnSetMoney -= OnSetMoney;
         Events.OnRequestMoney -= OnGetMoney;
-        Events.OnLevelChange -= OnLevelCompleted;
-        Events.OnGameCompleted -= OnGameCompleted;
         Events.OnBusinessBuilt -= OnBusinessBuilt;
         Events.OnBusinessUpgraded -= onBusinessUpgraded;
+        Events.OnLevelChange -= onLevelChange;
     }
     private void Update()
     {
@@ -67,16 +65,7 @@ public class GameController : MonoBehaviour
     {
         return _money;
     }
-
-    private void OnLevelCompleted(float level)
-    {
-        // TODO next level menu, if there are no levels left, make GameCompleted display something
-    }
-
-    private void OnGameCompleted()
-    {
-        // TODO display end screen that says for example "Game Won! Completed all levels!"
-    }
+    
 
     private void AddMoney()
     {
@@ -107,6 +96,11 @@ public class GameController : MonoBehaviour
         {
             Events.SetLevel(level+1);
         }
+    }
+
+    private void onLevelChange(float level)
+    {
+        this.level = level;
     }
 
     public bool isBusinessBuilt(BusinessData data)

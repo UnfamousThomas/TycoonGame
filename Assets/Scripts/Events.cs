@@ -10,9 +10,6 @@ public static class Events
 
     public static event Action<float> OnLevelChange;
     public static void SetLevel(float level) => OnLevelChange?.Invoke(level);
-    
-    public static event Action OnGameCompleted;
-    public static void GameCompleted() => OnGameCompleted?.Invoke();
 
     public static event Action<BusinessData> OnBusinessSelected;
     public static void SelectBusiness(BusinessData data) => OnBusinessSelected?.Invoke(data);

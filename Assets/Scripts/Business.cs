@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,21 @@ using UnityEngine;
 public class Business : MonoBehaviour
 {
     public BusinessData businessData;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    public float CurrentMoneyProduction;
+
+    private void Awake()
     {
-        
+        Events.OnBusinessUpgraded += OnBusinessUpgraded;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        Events.OnBusinessUpgraded -= OnBusinessUpgraded;
+    }
+
+    private void OnBusinessUpgraded(Business business)
+    {
+        CurrentMoneyProduction += businessData.moneyProductionStep;
     }
 }

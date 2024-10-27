@@ -1,20 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private float _money = 0;
     public float initialMoney = 10;
+    
+    private float _money;
+    private List<Business> _builtBusinesses;
     
     private void Awake()
     {
         Events.OnSetMoney += OnSetMoney;
         Events.OnRequestMoney += OnGetMoney;
         Events.OnLevelCompleted += OnLevelCompleted;
+        Events.OnGameCompleted += OnGameCompleted;
+        Events.OnBusinessBuilt += OnBusinessBuilt;
+
     }
 
     public void Start()
     {
         Events.SetMoney(initialMoney);
+        InvokeRepeating(nameof(AddMoney), 0, 1);
     }
 
     private void OnDestroy()
@@ -22,6 +29,8 @@ public class GameController : MonoBehaviour
         Events.OnSetMoney -= OnSetMoney;
         Events.OnRequestMoney -= OnGetMoney;
         Events.OnLevelCompleted -= OnLevelCompleted;
+        Events.OnGameCompleted -= OnGameCompleted;
+        Events.OnBusinessBuilt -= OnBusinessBuilt;
     }
 
     private void OnSetMoney(float money)
@@ -39,8 +48,23 @@ public class GameController : MonoBehaviour
         // TODO next level menu, if there are no levels left, make GameCompleted display something
     }
 
-    private void GameCompleted()
+    private void OnGameCompleted()
     {
-        
+        // TODO display end screen that says for example "Game Won! Completed all levels!"
+    }
+
+    private void AddMoney()
+    {
+        float money = 0;
+        foreach (Business business in _builtBusinesses)
+        {
+            money += business.CurrentMoneyProduction;
+        }
+        Events.SetMoney(Events.RequestMoney() + money);
+    }
+
+    private void OnBusinessBuilt(Business business)
+    {
+        _builtBusinesses.Add(business);
     }
 }

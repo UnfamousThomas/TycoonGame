@@ -6,10 +6,10 @@ public class BusinessData : ScriptableObject
     public string businessName;
     public float cost;
     public float baseUpgradeCost;
-    public float upgradeCostMultiplier;
+    public float upgradeCostStep; // How much the cost increases with each upgrade.
     public int amountOfUpgrades;
-    public float baseGoldProduction;
-    public float goldProductionMultiplier;
+    public float baseMoneyProduction;
+    public float moneyProductionStep; // Same as upgrade step, but 
     public Business businessPrefab;
     public Sprite icon;
 }

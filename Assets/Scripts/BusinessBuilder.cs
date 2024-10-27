@@ -12,13 +12,13 @@ public class BusinessBuilder : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnBusinessSelected += BusinessSelected;
+        Events.OnBusinessSelected += OnBusinessSelected;
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        Events.OnBusinessSelected -= BusinessSelected;
+        Events.OnBusinessSelected -= OnBusinessSelected;
     }
 
     void Update()
@@ -77,7 +77,7 @@ public class BusinessBuilder : MonoBehaviour
         }
     }
 
-    private void BusinessSelected(BusinessData data)
+    private void OnBusinessSelected(BusinessData data)
     {
         _currentBusinessData = data;
         gameObject.SetActive(true);

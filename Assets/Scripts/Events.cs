@@ -10,8 +10,16 @@ public static class Events
 
     public static event Action OnLevelCompleted;
     public static void LevelCompleted() => OnLevelCompleted?.Invoke();
+    
+    public static event Action OnGameCompleted;
+    public static void GameCompleted() => OnGameCompleted?.Invoke();
 
     public static event Action<BusinessData> OnBusinessSelected;
-
     public static void SelectBusiness(BusinessData data) => OnBusinessSelected?.Invoke(data);
+
+    public static event Action<Business> OnBusinessBuilt;
+    public static void BuildBusiness(Business business) => OnBusinessBuilt?.Invoke(business);
+
+    public static event Action<Business> OnBusinessUpgraded;
+    public static void UpgradeBusiness(Business business) => OnBusinessUpgraded?.Invoke(business);
 }

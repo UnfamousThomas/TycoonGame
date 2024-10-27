@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     
     private float _money;
     private List<Business> _builtBusinesses = new();
+    public List<Business> initialBusinesses;
     
     private void Awake()
     {
@@ -16,7 +17,10 @@ public class GameController : MonoBehaviour
         Events.OnLevelCompleted += OnLevelCompleted;
         Events.OnGameCompleted += OnGameCompleted;
         Events.OnBusinessBuilt += OnBusinessBuilt;
-
+        foreach (var initialBusiness in initialBusinesses)
+        {
+            _builtBusinesses.Add(initialBusiness);
+        }
     }
 
     public void Start()

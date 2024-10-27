@@ -99,7 +99,7 @@ public class BusinessBuilder : MonoBehaviour
         //Instantiate a tower prefab at the current position
         //Disable the Tower Builder gameobject
         if (!IsFree(transform.position)) return;
-        
+        Debug.Log(Events.RequestMoney());
         Events.SetMoney(Events.RequestMoney() - _currentBusinessData.cost);
         
         

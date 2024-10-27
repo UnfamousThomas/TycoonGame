@@ -14,10 +14,10 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Events.OnSetMoney += OnSetMoney;
-        Events.OnRequestMoney += OnGetMoney;
         Events.OnBusinessBuilt += OnBusinessBuilt;
         Events.OnBusinessUpgraded += onBusinessUpgraded;
         Events.OnLevelChange += onLevelChange;
+        Events.OnRequestMoney += OnGetMoney;
     }
 
     public void Start()
@@ -29,10 +29,10 @@ public class GameController : MonoBehaviour
     private void OnDestroy()
     {
         Events.OnSetMoney -= OnSetMoney;
-        Events.OnRequestMoney -= OnGetMoney;
         Events.OnBusinessBuilt -= OnBusinessBuilt;
         Events.OnBusinessUpgraded -= onBusinessUpgraded;
         Events.OnLevelChange -= onLevelChange;
+        Events.OnRequestMoney -= OnGetMoney;
     }
     private void Update()
     {
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
                 Business business = collider.GetComponentInParent<Business>();
                 if (business != null)
                 {
-                    Events.ClickBusiness(business, _money);
+                    Events.ClickBusiness(business);
                     break;
                 }
             }
@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
         {
             Events.SetLevel(level+1);
         }
+        Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
     }
 
     private void onLevelChange(float level)

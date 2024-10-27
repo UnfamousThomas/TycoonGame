@@ -16,9 +16,9 @@ MonoBehaviour:
   cost: 3
   baseUpgradeCost: 100
   upgradeCostStep: 300
-  amountOfUpgrades: 4
+  amountOfUpgrades: 7
   baseMoneyProduction: 8
-  moneyProductionStep: 20
+  moneyProductionStep: 40
   businessPrefab: {fileID: 4393733913066814621, guid: eb79bda838e7ad948af4abdadca8e604, type: 3}
   icon: {fileID: 2117511507, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   onlyOneAllowed: 0

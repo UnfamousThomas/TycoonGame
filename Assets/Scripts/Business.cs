@@ -29,7 +29,7 @@ public class Business : MonoBehaviour
         }
     }
 
-    public bool isUpgradable(float money)
+    public bool isUpgradable()
     {
         if (level == businessData.amountOfUpgrades + 1) return false;
         return true;
@@ -37,7 +37,7 @@ public class Business : MonoBehaviour
 
     public float calculateNextLevelCost()
     {
-        return businessData.baseUpgradeCost + (level-1 * businessData.upgradeCostStep);
+        return businessData.baseUpgradeCost + (level * businessData.upgradeCostStep);
     }
 
     public float getCurrentProduction()

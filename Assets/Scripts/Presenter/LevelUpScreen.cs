@@ -28,12 +28,12 @@ public class LevelUpScreen : MonoBehaviour
         Events.OnBusinessClicked -= onBusinessClick;
     }
 
-    private void onBusinessClick(Business business, float money)
+    private void onBusinessClick(Business business)
     {
         _business = business;
         buildingName.text = business.businessData.businessName.ToUpper();
         levelText.text = "LEVEL: " + business.getLevel().ToString();
-        if (business.isUpgradable(money))
+        if (business.isUpgradable())
         {
             levelUpButton.gameObject.SetActive(true);
         }
@@ -42,7 +42,7 @@ public class LevelUpScreen : MonoBehaviour
             levelUpButton.gameObject.SetActive(false);
         }
 
-        if (business.calculateNextLevelCost() >= money)
+        if (business.calculateNextLevelCost() >= Events.RequestMoney())
         {
             levelUpButton.interactable = false;
             levelUpImage.color = notAllowedLevelup;

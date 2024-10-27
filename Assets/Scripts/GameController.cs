@@ -36,7 +36,28 @@ public class GameController : MonoBehaviour
         Events.OnBusinessBuilt -= OnBusinessBuilt;
         Events.OnBusinessUpgraded -= onBusinessUpgraded;
     }
+    private void Update()
+    {
+        checkForClick();
+    }
 
+    private void checkForClick()
+    {
+        if(Input.GetMouseButtonDown(0)) {
+            Vector3 mousePos = transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePos, 0.5f);
+            foreach (var collider in colliders)
+            {
+                Business business = collider.GetComponentInParent<Business>();
+                if (business != null)
+                {
+                    Events.ClickBusiness(business, _money);
+                    break;
+                }
+            }
+        }
+    }
+    
     private void OnSetMoney(float money)
     {
         _money = money;

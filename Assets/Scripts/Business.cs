@@ -22,23 +22,32 @@ public class Business : MonoBehaviour
 
     private void OnBusinessUpgraded(Business business)
     {
-        _currentMoneyProduction += businessData.moneyProductionStep;
+        if(business == this)
+        {
+            level++;
+            _currentMoneyProduction += businessData.moneyProductionStep;
+        }
     }
 
-    private bool isUpgradable(float money)
+    public bool isUpgradable(float money)
     {
         if (level == businessData.amountOfUpgrades + 1) return false;
-        if (money < calculateNextLevelCost()) return false;
         return true;
     }
 
-    private float calculateNextLevelCost()
+    public float calculateNextLevelCost()
     {
-        return businessData.baseUpgradeCost + (level - 1 * businessData.upgradeCostStep);
+        return businessData.baseUpgradeCost + (level* businessData.upgradeCostStep);
     }
 
     public float getCurrentProduction()
     {
         return _currentMoneyProduction;
     }
+
+    public int getLevel()
+    {
+        return level;
+    }
+    
 }

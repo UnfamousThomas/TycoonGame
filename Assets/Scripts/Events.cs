@@ -22,4 +22,7 @@ public static class Events
 
     public static event Action<Business> OnBusinessUpgraded;
     public static void UpgradeBusiness(Business business) => OnBusinessUpgraded?.Invoke(business);
+
+    public static event Action<Business, float> OnBusinessClicked;
+    public static void ClickBusiness(Business business, float money) => OnBusinessClicked?.Invoke(business, money);
 }

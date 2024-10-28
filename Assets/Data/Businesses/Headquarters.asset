@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe993d393bc41e7a87b5bd48ab2143a, type: 3}
+  m_Name: Headquarters
+  m_EditorClassIdentifier: 
+  businessName: Headquarters
+  cost: 10
+  baseUpgradeCost: 10000
+  upgradeCostStep: 100000
+  amountOfUpgrades: 4
+  baseMoneyProduction: 10
+  moneyProductionStep: 100
+  businessPrefab: {fileID: 6686919787794484536, guid: c0af4b6c6f3b0ca4c832b67f55754ff8, type: 3}
+  icon: {fileID: 788982356, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  onlyOneAllowed: 1

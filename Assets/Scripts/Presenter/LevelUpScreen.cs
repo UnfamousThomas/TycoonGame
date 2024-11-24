@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -108,5 +109,13 @@ public class LevelUpScreen : MonoBehaviour
     public void CloseFinished()
     {
         gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("ExitMenu"))
+        {
+            Exit();
+        }
     }
 }

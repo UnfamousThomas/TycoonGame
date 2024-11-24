@@ -11,7 +11,6 @@
 
         private void Awake()
         {
-            Debug.Log("awake");
             Events.OnAudioClipGroupPlayed += PlayAudioGroup;
         }
 
@@ -36,7 +35,6 @@
 
         private void PlayAudioGroup(AudioClipGroup audioGroup)
         {
-            Debug.Log("play");
             audioGroup.Play(getSource());
         }
     }

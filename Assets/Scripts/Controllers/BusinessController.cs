@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BusinessController : MonoBehaviour
 {
-
+    
     private List<Business> _builtBusinesses = new();
     private List<BusinessData> _businessData = new();
     
@@ -12,14 +12,16 @@ public class BusinessController : MonoBehaviour
     {
         Events.OnBusinessBuilt += OnBusinessBuilt;
         Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnBusinessSold += OnBusinessSold;
         Events.onLoadedBusinesses += onLoad;
         Events.OnRequestBusinesses += getBusinesses;
     }
-    
+
     private void OnDestroy()
     {
         Events.OnBusinessBuilt -= OnBusinessBuilt;
         Events.OnBusinessUpgraded -= onBusinessUpgraded;
+        Events.OnBusinessSold -= OnBusinessSold;
         Events.onLoadedBusinesses -= onLoad;
         Events.OnRequestBusinesses -= getBusinesses;
     }
@@ -82,6 +84,18 @@ public class BusinessController : MonoBehaviour
         Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
     }
     
+
+    private void OnBusinessSold(Business business)
+    {
+        _builtBusinesses.Remove(business);
+        _businessData.Remove(business.businessData);
+        Destroy(business.gameObject);
+        
+        Events.SetMoney(
+            Events.RequestMoney() + business.businessData.cost * business.businessData.sellingPriceMultiplier
+        );
+    }
+
     public bool isBusinessBuilt(BusinessData data)
     {
         return _businessData.Contains(data);

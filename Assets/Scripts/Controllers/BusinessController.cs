@@ -5,9 +5,7 @@ using UnityEngine;
 public class BusinessController : MonoBehaviour
 {
     
-    private float _money;
     private List<Business> _builtBusinesses = new();
-    private float level = 0;
     private List<BusinessData> _businessData = new();
     
     private void Awake()

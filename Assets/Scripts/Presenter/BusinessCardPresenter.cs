@@ -12,7 +12,7 @@ public class BusinessCardPresenter : MonoBehaviour
     public GameObject panel;
 
     private Button _button;
-    public GameController GameController;
+    public BusinessController BusinessController;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class BusinessCardPresenter : MonoBehaviour
 
     private void Update()
     {
-        if (GameController.isBusinessBuilt(businessData) &&
+        if (BusinessController.isBusinessBuilt(businessData) &&
             businessData.onlyOneAllowed)
         {
             Destroy(gameObject);

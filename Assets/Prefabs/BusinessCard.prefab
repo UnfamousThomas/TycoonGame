@@ -210,11 +210,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92c9ba1778b4019a8e5181c7648c090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  businessData: {fileID: 11400000, guid: 3b9faf66de915d5468c3e234d309f951, type: 2}
+  businessData: {fileID: 11400000, guid: 521db8d9fb0cb744d9974ca9166192c4, type: 2}
   costText: {fileID: 92010803511561399}
   iconImage: {fileID: 160664348764938563}
   panel: {fileID: 0}
-  GameController: {fileID: 0}
+  BusinessController: {fileID: 0}
 --- !u!1 &6273849397363149349
 GameObject:
   m_ObjectHideFlags: 0

@@ -688,8 +688,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 593776390}
-  - component: {fileID: 593776389}
-  - component: {fileID: 593776391}
+  - component: {fileID: 593776392}
+  - component: {fileID: 593776395}
+  - component: {fileID: 593776394}
+  - component: {fileID: 593776393}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -697,19 +699,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &593776389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593776388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb777f9b8d1c2214ab77c30201ff9bf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialMoney: 10
 --- !u!4 &593776390
 Transform:
   m_ObjectHideFlags: 0
@@ -725,7 +714,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &593776391
+--- !u!114 &593776392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -734,10 +723,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 593776388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba84d37b903495e9f780d1ce35b6b4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 906b92f1252f4e8594590c73819065c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourcePrefab: {fileID: 8886666049058498659, guid: d68ef36669611cf47adf31d137dae6cb, type: 3}
+  autoSaveIntervalSeconds: 30
+  deleteSave: 1
+--- !u!114 &593776393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593776388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad2e732fb3e434e88ff30702def5a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialMoney: 10
+--- !u!114 &593776394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593776388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41ebda87b844aebb2662ab9c92266cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &593776395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593776388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed609648bf0a4d15b1c7905562d50c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &598790153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4421,7 +4448,11 @@ PrefabInstance:
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: GameController
       value: 
-      objectReference: {fileID: 593776389}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
+      propertyPath: BusinessController
+      value: 
+      objectReference: {fileID: 593776395}
     - target: {fileID: 5911173892225261825, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: m_Name
       value: BusinessCard (1)
@@ -5843,9 +5874,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 20692545}
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
+      propertyPath: businessData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b9faf66de915d5468c3e234d309f951, type: 2}
+    - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: GameController
       value: 
-      objectReference: {fileID: 593776389}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
+      propertyPath: BusinessController
+      value: 
+      objectReference: {fileID: 593776395}
     - target: {fileID: 5911173892225261825, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: m_Name
       value: BusinessCard (2)
@@ -6128,13 +6167,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 20692545}
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
-      propertyPath: businessData
+      propertyPath: BusinessController
       value: 
-      objectReference: {fileID: 11400000, guid: 521db8d9fb0cb744d9974ca9166192c4, type: 2}
-    - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
-      propertyPath: GameController
-      value: 
-      objectReference: {fileID: 593776389}
+      objectReference: {fileID: 593776395}
     - target: {fileID: 5911173892225261825, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: m_Name
       value: BusinessCard

@@ -6504,7 +6504,6 @@ GameObject:
   - component: {fileID: 1492654105}
   - component: {fileID: 1492654107}
   - component: {fileID: 1492654106}
-  - component: {fileID: 1492654108}
   m_Layer: 5
   m_Name: BasicBuildingCard
   m_TagString: Untagged
@@ -6697,18 +6696,6 @@ MonoBehaviour:
   animationFinishEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1492654108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492654101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26656e3cdef144218598eb05505c1bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1548690899
 GameObject:
   m_ObjectHideFlags: 0
@@ -8290,7 +8277,6 @@ GameObject:
   - component: {fileID: 2106761819}
   - component: {fileID: 2106761818}
   - component: {fileID: 2106761820}
-  - component: {fileID: 2106761821}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -8340,18 +8326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourcePrefab: {fileID: 8886666049058498659, guid: d68ef36669611cf47adf31d137dae6cb, type: 3}
---- !u!114 &2106761821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106761817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c065ddf278b436dbc9244bc53f6fc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5362275604079314222
 PrefabInstance:
   m_ObjectHideFlags: 0

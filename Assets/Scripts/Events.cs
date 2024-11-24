@@ -6,6 +6,8 @@ public static class Events
     public static event Action<float> OnSetMoney;
     public static void SetMoney(float value) => OnSetMoney?.Invoke(value);
 
+    public static event Action<float> OnSetMoneyProduction;
+    public static void SetMoneyProduction(float value) => OnSetMoneyProduction?.Invoke(value);
     public static event Func<float> OnRequestMoney;
     public static float RequestMoney() => OnRequestMoney?.Invoke() ?? 0;
 

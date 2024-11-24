@@ -8,6 +8,7 @@ public class BusinessCardPresenter : MonoBehaviour
     public BusinessData businessData;
     
     public TextMeshProUGUI costText;
+    public TextMeshProUGUI nameText;
     public Image iconImage;
     public GameObject panel;
 
@@ -24,6 +25,7 @@ public class BusinessCardPresenter : MonoBehaviour
         {
             costText.text = businessData.cost.ToString();
             iconImage.sprite = businessData.icon;
+            nameText.text = businessData.businessName;
         }
 
         Events.OnSetMoney += OnSetMoney;

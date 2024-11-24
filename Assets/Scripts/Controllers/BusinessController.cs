@@ -114,6 +114,7 @@ public class BusinessController : MonoBehaviour
             money += business.getCurrentProduction();
         }
         Events.SetMoney(Events.RequestMoney() + money);
+        Events.SetMoneyProduction(money);
     }
 
     

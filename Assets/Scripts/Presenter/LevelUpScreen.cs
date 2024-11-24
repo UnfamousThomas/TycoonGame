@@ -79,6 +79,11 @@ public class LevelUpScreen : MonoBehaviour
         {
             sellButton.gameObject.SetActive(false);
         }
+
+        else
+        {
+            sellButton.gameObject.SetActive(true);
+        }
         
         if (_business.calculateNextLevelCost() >= Events.RequestMoney())
         {

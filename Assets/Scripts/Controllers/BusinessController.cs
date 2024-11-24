@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BusinessController : MonoBehaviour
 {
-    public float initialMoney = 10;
     
     private float _money;
     private List<Business> _builtBusinesses = new();
@@ -13,7 +12,6 @@ public class BusinessController : MonoBehaviour
     
     private void Awake()
     {
-        Events.OnSetMoney += OnSetMoney;
         Events.OnBusinessBuilt += OnBusinessBuilt;
         Events.OnBusinessUpgraded += onBusinessUpgraded;
         Events.OnBusinessSold += OnBusinessSold;

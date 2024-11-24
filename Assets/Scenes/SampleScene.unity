@@ -22166,10 +22166,12 @@ MonoBehaviour:
   levelUpButton: {fileID: 666539644}
   levelUpImage: {fileID: 1271212246}
   exitButton: {fileID: 305481018}
+  sellButton: {fileID: 0}
   allowedLevelup: {r: 0, g: 1, b: 0, a: 1}
   notAllowedLevelup: {r: 1, g: 0, b: 0, a: 1}
   openAnimation: {fileID: 1492654107}
   closeAnimation: {fileID: 1492654106}
+  clickGroup: {fileID: 11400000, guid: bdd010b1a39389041bf1f93eb28cd4e6, type: 2}
 --- !u!114 &1492654106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23169,6 +23171,7 @@ GameObject:
   - component: {fileID: 2106761819}
   - component: {fileID: 2106761818}
   - component: {fileID: 2106761820}
+  - component: {fileID: 2106761821}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -23218,6 +23221,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourcePrefab: {fileID: 8886666049058498659, guid: d68ef36669611cf47adf31d137dae6cb, type: 3}
+--- !u!114 &2106761821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106761817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c065ddf278b436dbc9244bc53f6fc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickGroup: {fileID: 0}
 --- !u!1001 &5362275604079314222
 PrefabInstance:
   m_ObjectHideFlags: 0

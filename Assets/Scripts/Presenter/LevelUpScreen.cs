@@ -15,6 +15,7 @@ public class LevelUpScreen : MonoBehaviour
     public Color notAllowedLevelup = Color.red;
     public ScalingAnimation openAnimation;
     public ScalingAnimation closeAnimation;
+    public AudioClipGroup clickGroup;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class LevelUpScreen : MonoBehaviour
     private void OnBusinessClick(Business business)
     {
         openAnimation.enabled = true;
-        
+        Events.PlayAudioClipGroup(clickGroup);
         _business = business;
         buildingName.text = business.businessData.businessName.ToUpper();
         
@@ -55,18 +56,21 @@ public class LevelUpScreen : MonoBehaviour
 
     private void LevelUp()
     {
+        Events.PlayAudioClipGroup(clickGroup);
         Events.StartUpgradeBusiness(_business);
     }
     
 
     private void Exit()
     {
+        Events.PlayAudioClipGroup(clickGroup);
         closeAnimation.enabled = true;
     }
 
     private void Sell()
     {
         Events.SellBusiness(_business);
+        Events.PlayAudioClipGroup(clickGroup);
         Exit();
     }
 

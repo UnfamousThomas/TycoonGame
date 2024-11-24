@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoSaveIntervalSeconds: 30
-  deleteSave: 1
+  deleteSave: 0
 --- !u!114 &593776393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,7 +878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -213.52588, y: -48.140015}
+  m_AnchoredPosition: {x: -213.52588, y: -48.139893}
   m_SizeDelta: {x: 427.057, y: 96.28601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &614444179
@@ -5186,7 +5186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -38.924}
+  m_AnchoredPosition: {x: 0, y: -38.92383}
   m_SizeDelta: {x: -164.943, y: -174.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548690901
@@ -5659,7 +5659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 114.581, y: -48.143}
+  m_AnchoredPosition: {x: 114.58099, y: -48.142822}
   m_SizeDelta: {x: 229.219, y: 96.286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856516098

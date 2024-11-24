@@ -9,24 +9,56 @@ public class Business : MonoBehaviour
 
     private int level = 1;
     private float _currentMoneyProduction = 0;
+    private float _timeWhenUpgradingFinished = 0;
+    
     private void Awake()
     {
         _currentMoneyProduction = businessData.baseMoneyProduction;
-        Events.OnBusinessUpgraded += OnBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish += OnBusinessUpgradedFinish;
+        Events.OnBusinessUpgradedStart += OnBusinessUpgradedStart;
     }
 
     private void OnDestroy()
     {
-        Events.OnBusinessUpgraded -= OnBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish -= OnBusinessUpgradedFinish;
+        Events.OnBusinessUpgradedStart -= OnBusinessUpgradedStart;
     }
 
-    private void OnBusinessUpgraded(Business business)
+    private void Update()
+    {
+        if (_timeWhenUpgradingFinished > Time.time)
+        {
+            if (!businessData.upgradeAnimation.isPlaying)
+            {
+                businessData.upgradeAnimation.Play();
+            } 
+        }
+        else
+        {
+            businessData.upgradeAnimation.Stop();
+        }
+    }
+
+    private void OnBusinessUpgradedFinish(Business business)
     {
         if(business == this)
         {
             level++;
             _currentMoneyProduction += businessData.moneyProductionStep;
         }
+    }
+
+    private void OnBusinessUpgradedStart(Business business)
+    {
+        if(business != this) return;
+        _timeWhenUpgradingFinished = calculateNextUpgradeFinishTime();
+
+    }
+
+    private float calculateNextUpgradeFinishTime()
+    {
+        return Time.time + (businessData.baseUpgradeTime) +
+               (businessData.eachLevelTimeStep * level);
     }
 
     public bool isUpgradable()
@@ -42,6 +74,10 @@ public class Business : MonoBehaviour
 
     public float getCurrentProduction()
     {
+        if (_timeWhenUpgradingFinished > Time.time)
+        {
+            return 0;
+        }
         return _currentMoneyProduction;
     }
 

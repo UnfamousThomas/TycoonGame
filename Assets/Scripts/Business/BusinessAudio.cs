@@ -8,13 +8,13 @@ public class BusinessAudio: MonoBehaviour
 
     private void Awake()
     {
-        Events.OnBusinessUpgraded += OnBusinessUpgrade;
+        Events.OnBusinessUpgradedFinish += OnBusinessUpgrade;
         Events.OnBusinessBuilt += onBusinessBuilt;
     }
 
     private void OnDestroy()
     {
-        Events.OnBusinessUpgraded -= OnBusinessUpgrade;
+        Events.OnBusinessUpgradedFinish -= OnBusinessUpgrade;
         Events.OnBusinessBuilt -= onBusinessBuilt;
     }
 

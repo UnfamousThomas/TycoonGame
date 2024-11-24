@@ -11,7 +11,7 @@ public class BusinessController : MonoBehaviour
     private void Awake()
     {
         Events.OnBusinessBuilt += OnBusinessBuilt;
-        Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish += OnBusinessUpgradedFinish;
         Events.onLoadedBusinesses += onLoad;
         Events.OnRequestBusinesses += getBusinesses;
     }
@@ -19,7 +19,7 @@ public class BusinessController : MonoBehaviour
     private void OnDestroy()
     {
         Events.OnBusinessBuilt -= OnBusinessBuilt;
-        Events.OnBusinessUpgraded -= onBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish -= OnBusinessUpgradedFinish;
         Events.onLoadedBusinesses -= onLoad;
         Events.OnRequestBusinesses -= getBusinesses;
     }
@@ -73,7 +73,7 @@ public class BusinessController : MonoBehaviour
         }
     }
 
-    private void onBusinessUpgraded(Business business)
+    private void OnBusinessUpgradedFinish(Business business)
     {
         if (business.businessData.businessName == "Headquarters") //TODO needs better logic probably?
         {
@@ -81,6 +81,7 @@ public class BusinessController : MonoBehaviour
         }
         Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
     }
+    
     
     public bool isBusinessBuilt(BusinessData data)
     {

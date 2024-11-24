@@ -13,4 +13,7 @@ public class BusinessData : ScriptableObject
     public Business businessPrefab;
     public Sprite icon;
     public bool onlyOneAllowed;
+    public float baseUpgradeTime;
+    public float eachLevelTimeStep;
+    public Animation upgradeAnimation;
 }

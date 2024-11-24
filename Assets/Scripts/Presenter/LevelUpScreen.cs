@@ -47,6 +47,7 @@ public class LevelUpScreen : MonoBehaviour
         }
         
         gameObject.SetActive(true);
+        Refresh();
     }
     
     

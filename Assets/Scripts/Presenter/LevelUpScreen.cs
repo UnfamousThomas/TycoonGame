@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,6 +95,14 @@ public class LevelUpScreen : MonoBehaviour
     {
         if(_business != null) {
             Refresh();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("ExitMenu"))
+        {
+            Exit();
         }
     }
 }

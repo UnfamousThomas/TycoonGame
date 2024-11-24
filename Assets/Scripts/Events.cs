@@ -43,4 +43,6 @@ public static class Events
     public static event Func<List<Business>> OnRequestBusinesses;
     public static List<Business> RequestBusinesses() => OnRequestBusinesses?.Invoke() ?? new List<Business>();
 
+    public static event Action OnExitMenu;
+    public static void ExitMenu() => OnExitMenu?.Invoke();
 }

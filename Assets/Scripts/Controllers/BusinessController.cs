@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BusinessController : MonoBehaviour
 {
@@ -50,8 +51,16 @@ public class BusinessController : MonoBehaviour
 
     private void checkForClick()
     {
-        if(Input.GetMouseButtonDown(0)) {
-            Vector3 mousePos = transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                //Ignore clicks that are inside a UI overlay.
+                return;
+            }
+
+            Vector3 mousePos = transform.position =
+                Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePos, 0.5f);
             foreach (var collider in colliders)
             {

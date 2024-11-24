@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
         Events.OnSetMoney += OnSetMoney;
         Events.OnBusinessBuilt += OnBusinessBuilt;
         Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnBusinessSold += OnBusinessSold;
         Events.OnLevelChange += onLevelChange;
         Events.OnRequestMoney += OnGetMoney;
     }
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour
         Events.OnSetMoney -= OnSetMoney;
         Events.OnBusinessBuilt -= OnBusinessBuilt;
         Events.OnBusinessUpgraded -= onBusinessUpgraded;
+        Events.OnBusinessSold -= OnBusinessSold;
         Events.OnLevelChange -= onLevelChange;
         Events.OnRequestMoney -= OnGetMoney;
     }
@@ -97,6 +99,15 @@ public class GameController : MonoBehaviour
             Events.SetLevel(level+1);
         }
         Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
+    }
+
+    private void OnBusinessSold(Business business)
+    {
+        _builtBusinesses.Remove(business);
+        _businessData.Remove(business.businessData);
+        Destroy(business.gameObject);
+        
+        Events.SetMoney(Events.RequestMoney() + business.businessData.cost);
     }
 
     private void onLevelChange(float level)

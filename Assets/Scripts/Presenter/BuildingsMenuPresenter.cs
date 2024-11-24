@@ -22,4 +22,17 @@ public class BuildingsMenuPresenter : MonoBehaviour
     {
         panel.SetActive(true);
     }
+
+    private void Update()
+    {
+        if (Input.GetButton("Build"))
+        {
+                panel.SetActive(true);
+        }
+
+        if (Input.GetButton("ExitMenu"))
+        {
+            panel.SetActive(false);
+        }
+    }
 }

@@ -28,8 +28,6 @@ public class Business : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Finish: " + _timeWhenUpgradingFinished);
-        Debug.Log("Current: " + Time.time);
         if (_timeWhenUpgradingFinished > Time.time)
         {
             _spriteRenderer.sprite = businessData.upgradeSprite;

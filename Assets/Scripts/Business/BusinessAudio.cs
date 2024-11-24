@@ -29,5 +29,6 @@ public class BusinessAudio: MonoBehaviour
     void onBusinessBuilt(Business business)
     {
         Events.PlayAudioClipGroup(buildingGroup);
+        Debug.Log("build");
     }
 }

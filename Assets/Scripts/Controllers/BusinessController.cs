@@ -95,7 +95,9 @@ public class BusinessController : MonoBehaviour
         _businessData.Remove(business.businessData);
         Destroy(business.gameObject);
         
-        Events.SetMoney(Events.RequestMoney() + business.businessData.cost);
+        Events.SetMoney(
+            Events.RequestMoney() + business.businessData.cost * business.businessData.sellingPriceMultiplier
+        );
     }
 
     public bool isBusinessBuilt(BusinessData data)

@@ -16,6 +16,9 @@ public class LevelUpScreen : MonoBehaviour
     public Button sellButton;
     public Color allowedLevelup = Color.green;
     public Color notAllowedLevelup = Color.red;
+    public ScalingAnimation openAnimation;
+    public ScalingAnimation closeAnimation;
+
     private void Awake()
     {
         Events.OnBusinessClicked += onBusinessClick;
@@ -32,6 +35,8 @@ public class LevelUpScreen : MonoBehaviour
 
     private void onBusinessClick(Business business)
     {
+        openAnimation.enabled = true;
+        
         _business = business;
         buildingName.text = business.businessData.businessName.ToUpper();
         levelText.text = "LEVEL: " + business.getLevel().ToString();
@@ -69,12 +74,20 @@ public class LevelUpScreen : MonoBehaviour
 
     private void exit()
     {
-        gameObject.SetActive(false);
+        if(!gameObject.activeSelf)
+            return;
+        
+        closeAnimation.enabled = true;
     }
 
     private void Sell()
     {
         Events.SellBusiness(_business);
         exit();
+    }
+    
+    public void CloseFinished()
+    {
+        gameObject.SetActive(false);
     }
 }

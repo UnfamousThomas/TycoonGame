@@ -49,5 +49,10 @@ public class Business : MonoBehaviour
     {
         return level;
     }
-    
+
+    public void setLevel(int level)
+    {
+        this.level = level;
+        _currentMoneyProduction = businessData.baseMoneyProduction + (level-1) * businessData.upgradeCostStep;
+    }
 }

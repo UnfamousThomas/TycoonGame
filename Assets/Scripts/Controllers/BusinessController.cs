@@ -2,41 +2,40 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class BusinessController : MonoBehaviour
 {
-    public float initialMoney = 10;
-    
-    private float _money;
+
     private List<Business> _builtBusinesses = new();
-    private float level = 0;
     private List<BusinessData> _businessData = new();
     
     private void Awake()
     {
-        Events.OnSetMoney += OnSetMoney;
         Events.OnBusinessBuilt += OnBusinessBuilt;
         Events.OnBusinessUpgraded += onBusinessUpgraded;
-        Events.OnLevelChange += onLevelChange;
-        Events.OnRequestMoney += OnGetMoney;
+        Events.onLoadedBusinesses += onLoad;
+        Events.OnRequestBusinesses += getBusinesses;
     }
-
-    public void Start()
-    {
-        Events.SetMoney(initialMoney);
-        InvokeRepeating(nameof(AddMoney), 0, 1);
-    }
-
+    
     private void OnDestroy()
     {
-        Events.OnSetMoney -= OnSetMoney;
         Events.OnBusinessBuilt -= OnBusinessBuilt;
         Events.OnBusinessUpgraded -= onBusinessUpgraded;
-        Events.OnLevelChange -= onLevelChange;
-        Events.OnRequestMoney -= OnGetMoney;
+        Events.onLoadedBusinesses -= onLoad;
+        Events.OnRequestBusinesses -= getBusinesses;
     }
+    
+
     private void Update()
     {
         checkForClick();
+    }
+
+    public void onLoad(List<Business> businesses)
+    {
+        foreach (var business in businesses)
+        {
+            _builtBusinesses.Add(business);
+        }
     }
 
     private void checkForClick()
@@ -54,27 +53,6 @@ public class GameController : MonoBehaviour
                 }
             }
         }
-    }
-    
-    private void OnSetMoney(float money)
-    {
-        _money = money;
-    }
-
-    private float OnGetMoney()
-    {
-        return _money;
-    }
-    
-
-    private void AddMoney()
-    {
-        float money = 0;
-        foreach (Business business in _builtBusinesses)
-        { 
-            money += business.getCurrentProduction();
-        }
-        Events.SetMoney(Events.RequestMoney() + money);
     }
 
     private void OnBusinessBuilt(Business business)
@@ -94,18 +72,19 @@ public class GameController : MonoBehaviour
     {
         if (business.businessData.businessName == "Headquarters") //TODO needs better logic probably?
         {
-            Events.SetLevel(level+1);
+            Events.SetLevel(Events.RequestLevel()+1);
         }
         Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
     }
-
-    private void onLevelChange(float level)
-    {
-        this.level = level;
-    }
-
+    
     public bool isBusinessBuilt(BusinessData data)
     {
         return _businessData.Contains(data);
     }
+
+    private List<Business> getBusinesses()
+    {
+        return _builtBusinesses;
+    }
+    
 }

@@ -8,6 +8,8 @@ public class LevelUpScreen : MonoBehaviour
     private Business _business;
     public TextMeshProUGUI buildingName;
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI moneyProductionText;
+    public TextMeshProUGUI levelRequiredText;
     public Button levelUpButton;
     public Image levelUpImage;
     public Button exitButton;
@@ -51,6 +53,7 @@ public class LevelUpScreen : MonoBehaviour
         }
         
         gameObject.SetActive(true);
+        Refresh();
     }
     
     
@@ -78,6 +81,18 @@ public class LevelUpScreen : MonoBehaviour
     private void Refresh()
     {
         levelText.text = "LEVEL: " + _business.getLevel();
+        moneyProductionText.text = _business.getCurrentProduction() + " $/s";
+        levelRequiredText.text = "LEVEL UP: " + _business.calculateNextLevelCost() + " $";
+
+        if (_business.businessData.businessName.ToLower() == "headquarters")
+        {
+            sellButton.gameObject.SetActive(false);
+        }
+
+        else
+        {
+            sellButton.gameObject.SetActive(true);
+        }
         
         if (_business.calculateNextLevelCost() >= Events.RequestMoney())
         {

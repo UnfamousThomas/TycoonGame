@@ -7,6 +7,7 @@ public class BusinessBuilder : MonoBehaviour
 {
     public Color AllowColor;
     public Color BlockColor;
+    public ParticleSystem buildEffect;
 
     private BusinessData _currentBusinessData;
     private SpriteRenderer _spriteRenderer;
@@ -104,6 +105,7 @@ public class BusinessBuilder : MonoBehaviour
         
         Business business = Instantiate(_currentBusinessData.businessPrefab, transform.position, Quaternion.identity, null);
         business.businessData = _currentBusinessData;
+        Instantiate(buildEffect, business.transform).Play();
         gameObject.SetActive(false);
         Events.BuildBusiness(business);
     }

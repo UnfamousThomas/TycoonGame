@@ -26,3 +26,4 @@ MonoBehaviour:
   eachLevelTimeStep: 20
   upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   baseSprite: {fileID: 2117511507, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  sellingPriceMultiplier: 1

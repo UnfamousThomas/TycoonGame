@@ -107,7 +107,9 @@ public class GameController : MonoBehaviour
         _businessData.Remove(business.businessData);
         Destroy(business.gameObject);
         
-        Events.SetMoney(Events.RequestMoney() + business.businessData.cost);
+        Events.SetMoney(
+            Events.RequestMoney() + business.businessData.cost * business.businessData.sellingPriceMultiplier
+        );
     }
 
     private void onLevelChange(float level)

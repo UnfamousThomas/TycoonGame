@@ -28,6 +28,9 @@ public static class Events
     public static void StartUpgradeBusiness(Business business) => OnBusinessUpgradedStart?.Invoke(business);
 
 
+    public static event Action<Business> OnBusinessSold;
+    public static void SellBusiness(Business business) => OnBusinessSold?.Invoke(business);
+
     public static event Action<Business> OnBusinessClicked;
     public static void ClickBusiness(Business business) => OnBusinessClicked?.Invoke(business);
     

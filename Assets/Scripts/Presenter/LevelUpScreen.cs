@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,26 +10,31 @@ public class LevelUpScreen : MonoBehaviour
     public Button levelUpButton;
     public Image levelUpImage;
     public Button exitButton;
+    public Button sellButton;
     public Color allowedLevelup = Color.green;
     public Color notAllowedLevelup = Color.red;
     private void Awake()
     {
-        Events.OnBusinessClicked += onBusinessClick;
-        levelUpButton.onClick.AddListener(click);
-        exitButton.onClick.AddListener(exit);
+        Events.OnBusinessClicked += OnBusinessClick;
+        Events.OnBusinessUpgradedFinish += onBusinessUpgraded;
+        Events.OnSetMoney += onMoneyUpdate;
+        levelUpButton.onClick.AddListener(LevelUp);
+        exitButton.onClick.AddListener(Exit);
+        sellButton.onClick.AddListener(Sell);
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        Events.OnBusinessClicked -= onBusinessClick;
+        Events.OnBusinessClicked -= OnBusinessClick;
     }
+    
 
-    private void onBusinessClick(Business business)
+    private void OnBusinessClick(Business business)
     {
         _business = business;
         buildingName.text = business.businessData.businessName.ToUpper();
-        levelText.text = "LEVEL: " + business.getLevel().ToString();
+        
         if (business.isUpgradable())
         {
             levelUpButton.gameObject.SetActive(true);
@@ -41,8 +43,34 @@ public class LevelUpScreen : MonoBehaviour
         {
             levelUpButton.gameObject.SetActive(false);
         }
+        
+        gameObject.SetActive(true);
+    }
+    
+    
 
-        if (business.calculateNextLevelCost() >= Events.RequestMoney())
+    private void LevelUp()
+    {
+        Events.StartUpgradeBusiness(_business);
+    }
+    
+
+    private void Exit()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void Sell()
+    {
+        Events.SellBusiness(_business);
+        Exit();
+    }
+
+    private void Refresh()
+    {
+        levelText.text = "LEVEL: " + _business.getLevel();
+        
+        if (_business.calculateNextLevelCost() >= Events.RequestMoney())
         {
             levelUpButton.interactable = false;
             levelUpImage.color = notAllowedLevelup;
@@ -52,21 +80,20 @@ public class LevelUpScreen : MonoBehaviour
             levelUpButton.interactable = true;
             levelUpImage.color = allowedLevelup;
         }
-        
-        gameObject.SetActive(true);
     }
-    
-    
 
-    private void click()
+    private void onBusinessUpgraded(Business business)
     {
-        Events.StartUpgradeBusiness(_business);
-        exit();
+        if (_business != null && business == _business)
+        {
+            Refresh();
+        }
     }
-    
 
-    private void exit()
+    private void onMoneyUpdate(float money)
     {
-        gameObject.SetActive(false);
+        if(_business != null) {
+            Refresh();
+        }
     }
 }

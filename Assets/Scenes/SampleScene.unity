@@ -688,7 +688,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 593776390}
-  - component: {fileID: 593776389}
   - component: {fileID: 593776392}
   - component: {fileID: 593776395}
   - component: {fileID: 593776394}
@@ -700,23 +699,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &593776389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593776388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb777f9b8d1c2214ab77c30201ff9bf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialMoney: 10
-  _money: 0
-  _builtBusinesses: []
-  level: 0
-  _businessData: []
 --- !u!4 &593776390
 Transform:
   m_ObjectHideFlags: 0
@@ -745,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoSaveIntervalSeconds: 30
-  deleteSave: 0
+  deleteSave: 1
 --- !u!114 &593776393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4466,7 +4448,7 @@ PrefabInstance:
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: GameController
       value: 
-      objectReference: {fileID: 593776389}
+      objectReference: {fileID: 0}
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: BusinessController
       value: 
@@ -5898,7 +5880,7 @@ PrefabInstance:
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: GameController
       value: 
-      objectReference: {fileID: 593776389}
+      objectReference: {fileID: 0}
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: BusinessController
       value: 

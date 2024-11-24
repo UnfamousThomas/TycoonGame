@@ -75,7 +75,7 @@ public class Business : MonoBehaviour
 
     public float getCurrentProduction()
     {
-        if (_timeWhenUpgradingFinished > Time.time)
+        if (isBeingUpgraded())
         {
             return 0;
         }
@@ -91,5 +91,10 @@ public class Business : MonoBehaviour
     {
         this.level = level;
         _currentMoneyProduction = businessData.baseMoneyProduction + (level-1) * businessData.upgradeCostStep;
+    }
+
+    public bool isBeingUpgraded()
+    {
+        return _timeWhenUpgradingFinished > Time.time;
     }
 }

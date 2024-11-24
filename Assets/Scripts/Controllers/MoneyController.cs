@@ -12,7 +12,14 @@ public class MoneyController : MonoBehaviour
         Events.OnSetMoney += SetMoney;
         Events.OnRequestMoney += getMoney;
     }
-    
+
+    private void Start()
+    {
+        if(!SaveSystem.saveExists()) {
+            Events.SetMoney(initialMoney);
+        }
+    }
+
     private void OnDestroy()
     {
         Events.OnSetMoney -= SetMoney;

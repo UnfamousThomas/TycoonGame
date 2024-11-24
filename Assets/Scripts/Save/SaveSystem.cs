@@ -31,9 +31,23 @@ public class SaveSystem
         Debug.Log($"Game saved to {savePath}");
     }
 
+    public static void DeleteSaveData()
+    {
+        if (saveExists())
+        {
+            Debug.Log("deleting save data");
+            File.Delete(savePath);
+        }
+    }
+
+    public static bool saveExists()
+    {
+        return File.Exists(savePath);
+    }
+
     public static SaveData Load()
     {
-        if (!File.Exists(savePath))
+        if (!saveExists())
         {
             Debug.Log("Save file not found.");
             return null;

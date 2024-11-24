@@ -6,8 +6,20 @@ public class SaveController: MonoBehaviour
 {
     public float autoSaveIntervalSeconds = 30f;
     private float _lastSaveTime;
+
+    public bool deleteSave = false;
+
+    private void Awake()
+    {
+        if (deleteSave)
+        {
+            SaveSystem.DeleteSaveData();
+        }
+    }
+
     private void Start()
     {
+        
         SaveData data = SaveSystem.Load();
         if(data == null) return;
         Debug.Log("Loaded Level: " + data.level);
@@ -39,11 +51,7 @@ public class SaveController: MonoBehaviour
         }
         return businesses;
     }
-
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        SaveSystem.Save();
-    }
+    
 
     private void OnApplicationQuit()
     {

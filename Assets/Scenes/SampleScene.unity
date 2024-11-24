@@ -745,6 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoSaveIntervalSeconds: 30
+  deleteSave: 0
 --- !u!114 &593776393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5890,6 +5891,10 @@ PrefabInstance:
       propertyPath: panel
       value: 
       objectReference: {fileID: 20692545}
+    - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
+      propertyPath: businessData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b9faf66de915d5468c3e234d309f951, type: 2}
     - target: {fileID: 1984421820512751162, guid: 72b3d00d751865942ad261cb0fc697dc, type: 3}
       propertyPath: GameController
       value: 

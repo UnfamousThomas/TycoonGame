@@ -23,7 +23,12 @@ public class BusinessController : MonoBehaviour
         Events.onLoadedBusinesses -= onLoad;
         Events.OnRequestBusinesses -= getBusinesses;
     }
-    
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(AddMoney), 0, 1);
+    }
+
 
     private void Update()
     {
@@ -86,5 +91,16 @@ public class BusinessController : MonoBehaviour
     {
         return _builtBusinesses;
     }
+    
+    private void AddMoney()
+    {
+        float money = 0;
+        foreach (Business business in _builtBusinesses)
+        { 
+            money += business.getCurrentProduction();
+        }
+        Events.SetMoney(Events.RequestMoney() + money);
+    }
+
     
 }

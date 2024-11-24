@@ -10,7 +10,7 @@ public class BusinessBuilder : MonoBehaviour
 
     private BusinessData _currentBusinessData;
     private SpriteRenderer _spriteRenderer;
-
+    
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -99,7 +99,6 @@ public class BusinessBuilder : MonoBehaviour
         //Instantiate a tower prefab at the current position
         //Disable the Tower Builder gameobject
         if (!IsFree(transform.position)) return;
-        Debug.Log(Events.RequestMoney());
         Events.SetMoney(Events.RequestMoney() - _currentBusinessData.cost);
         
         

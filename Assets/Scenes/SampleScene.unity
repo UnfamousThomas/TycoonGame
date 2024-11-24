@@ -5409,8 +5409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26656e3cdef144218598eb05505c1bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openAnimation: {fileID: 1492654107}
-  closeAnimation: {fileID: 1492654106}
 --- !u!1 &1548690899
 GameObject:
   m_ObjectHideFlags: 0

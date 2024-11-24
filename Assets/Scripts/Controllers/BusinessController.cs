@@ -11,7 +11,8 @@ public class BusinessController : MonoBehaviour
     private void Awake()
     {
         Events.OnBusinessBuilt += OnBusinessBuilt;
-        Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish += OnBusinessUpgradedFinish;
+        Events.OnBusinessUpgradedFinish += OnBusinessUpgradedFinish;
         Events.OnBusinessSold += OnBusinessSold;
         Events.onLoadedBusinesses += onLoad;
         Events.OnRequestBusinesses += getBusinesses;
@@ -20,7 +21,8 @@ public class BusinessController : MonoBehaviour
     private void OnDestroy()
     {
         Events.OnBusinessBuilt -= OnBusinessBuilt;
-        Events.OnBusinessUpgraded -= onBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish -= OnBusinessUpgradedFinish;
+        Events.OnBusinessUpgradedFinish -= OnBusinessUpgradedFinish;
         Events.OnBusinessSold -= OnBusinessSold;
         Events.onLoadedBusinesses -= onLoad;
         Events.OnRequestBusinesses -= getBusinesses;
@@ -42,6 +44,7 @@ public class BusinessController : MonoBehaviour
         foreach (var business in businesses)
         {
             _builtBusinesses.Add(business);
+            _businessData.Add(business.businessData);
         }
     }
 
@@ -75,7 +78,7 @@ public class BusinessController : MonoBehaviour
         }
     }
 
-    private void onBusinessUpgraded(Business business)
+    private void OnBusinessUpgradedFinish(Business business)
     {
         if (business.businessData.businessName == "Headquarters") //TODO needs better logic probably?
         {

@@ -16,7 +16,7 @@ public class LevelUpScreen : MonoBehaviour
     private void Awake()
     {
         Events.OnBusinessClicked += OnBusinessClick;
-        Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish += onBusinessUpgraded;
         Events.OnSetMoney += onMoneyUpdate;
         levelUpButton.onClick.AddListener(LevelUp);
         exitButton.onClick.AddListener(Exit);
@@ -51,7 +51,7 @@ public class LevelUpScreen : MonoBehaviour
 
     private void LevelUp()
     {
-        Events.UpgradeBusiness(_business);
+        Events.StartUpgradeBusiness(_business);
     }
     
 

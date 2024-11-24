@@ -21,8 +21,12 @@ public static class Events
     public static event Action<Business> OnBusinessBuilt;
     public static void BuildBusiness(Business business) => OnBusinessBuilt?.Invoke(business);
 
-    public static event Action<Business> OnBusinessUpgraded;
-    public static void UpgradeBusiness(Business business) => OnBusinessUpgraded?.Invoke(business);
+    public static event Action<Business> OnBusinessUpgradedFinish;
+    public static void FinishUpgradeBusiness(Business business) => OnBusinessUpgradedFinish?.Invoke(business);
+    
+    public static event Action<Business> OnBusinessUpgradedStart;
+    public static void StartUpgradeBusiness(Business business) => OnBusinessUpgradedStart?.Invoke(business);
+
 
     public static event Action<Business> OnBusinessSold;
     public static void SellBusiness(Business business) => OnBusinessSold?.Invoke(business);

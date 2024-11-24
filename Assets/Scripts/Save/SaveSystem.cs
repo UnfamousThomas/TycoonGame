@@ -17,7 +17,8 @@ public class SaveSystem
             {
                 businessData = business.businessData, // Use the name of the ScriptableObject.
                 level = business.getLevel(),
-                position = business.transform.position
+                position = business.transform.position,
+                upgradeTimeLeft = business.upgradeTimeLeft,
             });
         }
 

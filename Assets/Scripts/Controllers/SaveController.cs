@@ -47,6 +47,7 @@ public class SaveController: MonoBehaviour
             Business business = Instantiate(businessSaveData.businessData.businessPrefab,
                 businessSaveData.position, Quaternion.identity);
             business.setLevel(businessSaveData.level);
+            business.upgradeTimeLeft = businessSaveData.upgradeTimeLeft;
             businesses.Add(business);
         }
         return businesses;

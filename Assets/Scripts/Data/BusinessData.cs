@@ -13,5 +13,9 @@ public class BusinessData : ScriptableObject
     public Business businessPrefab;
     public Sprite icon;
     public bool onlyOneAllowed;
+    public float baseUpgradeTime;
+    public float eachLevelTimeStep;
+    public Sprite upgradeSprite;
+    public Sprite baseSprite;
     public float sellingPriceMultiplier; // What percentage of the cost will be returned when selling.
 }

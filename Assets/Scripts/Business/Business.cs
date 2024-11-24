@@ -9,24 +9,57 @@ public class Business : MonoBehaviour
 
     private int level = 1;
     private float _currentMoneyProduction = 0;
+    private SpriteRenderer _spriteRenderer;
+    public float upgradeTimeLeft = 0;
+    
     private void Awake()
     {
         _currentMoneyProduction = businessData.baseMoneyProduction;
-        Events.OnBusinessUpgraded += OnBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish += OnBusinessUpgradedFinish;
+        Events.OnBusinessUpgradedStart += OnBusinessUpgradedStart;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnDestroy()
     {
-        Events.OnBusinessUpgraded -= OnBusinessUpgraded;
+        Events.OnBusinessUpgradedFinish -= OnBusinessUpgradedFinish;
+        Events.OnBusinessUpgradedStart -= OnBusinessUpgradedStart;
     }
 
-    private void OnBusinessUpgraded(Business business)
+    private void Update()
+    {
+        upgradeTimeLeft -= Time.deltaTime;
+
+        if (upgradeTimeLeft > 0)
+        {
+            _spriteRenderer.sprite = businessData.upgradeSprite;
+        }
+        else
+        {
+            _spriteRenderer.sprite = businessData.baseSprite;
+        }
+    }
+
+    private void OnBusinessUpgradedFinish(Business business)
     {
         if(business == this)
         {
             level++;
             _currentMoneyProduction += businessData.moneyProductionStep;
         }
+    }
+
+    private void OnBusinessUpgradedStart(Business business)
+    {
+        if(business != this) return;
+        upgradeTimeLeft = calculateNextUpgradeTime();
+
+    }
+
+    private float calculateNextUpgradeTime()
+    {
+        return  (businessData.baseUpgradeTime) +
+               (businessData.eachLevelTimeStep * level);
     }
 
     public bool isUpgradable()
@@ -42,6 +75,10 @@ public class Business : MonoBehaviour
 
     public float getCurrentProduction()
     {
+        if (isBeingUpgraded())
+        {
+            return 0;
+        }
         return _currentMoneyProduction;
     }
 
@@ -54,5 +91,10 @@ public class Business : MonoBehaviour
     {
         this.level = level;
         _currentMoneyProduction = businessData.baseMoneyProduction + (level-1) * businessData.upgradeCostStep;
+    }
+
+    public bool isBeingUpgraded()
+    {
+        return upgradeTimeLeft > 0;
     }
 }

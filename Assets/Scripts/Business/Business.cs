@@ -9,8 +9,8 @@ public class Business : MonoBehaviour
 
     private int level = 1;
     private float _currentMoneyProduction = 0;
-    private float _timeWhenUpgradingFinished = 0;
     private SpriteRenderer _spriteRenderer;
+    public float upgradeTimeLeft = 0;
     
     private void Awake()
     {
@@ -28,7 +28,9 @@ public class Business : MonoBehaviour
 
     private void Update()
     {
-        if (_timeWhenUpgradingFinished > Time.time)
+        upgradeTimeLeft -= Time.deltaTime;
+
+        if (upgradeTimeLeft > 0)
         {
             _spriteRenderer.sprite = businessData.upgradeSprite;
         }
@@ -50,13 +52,13 @@ public class Business : MonoBehaviour
     private void OnBusinessUpgradedStart(Business business)
     {
         if(business != this) return;
-        _timeWhenUpgradingFinished = calculateNextUpgradeFinishTime();
+        upgradeTimeLeft = calculateNextUpgradeTime();
 
     }
 
-    private float calculateNextUpgradeFinishTime()
+    private float calculateNextUpgradeTime()
     {
-        return Time.time + (businessData.baseUpgradeTime) +
+        return  (businessData.baseUpgradeTime) +
                (businessData.eachLevelTimeStep * level);
     }
 
@@ -93,6 +95,6 @@ public class Business : MonoBehaviour
 
     public bool isBeingUpgraded()
     {
-        return _timeWhenUpgradingFinished > Time.time;
+        return upgradeTimeLeft > 0;
     }
 }

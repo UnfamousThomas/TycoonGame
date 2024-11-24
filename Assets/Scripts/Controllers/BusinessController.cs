@@ -40,6 +40,7 @@ public class BusinessController : MonoBehaviour
         foreach (var business in businesses)
         {
             _builtBusinesses.Add(business);
+            _businessData.Add(business.businessData);
         }
     }
 

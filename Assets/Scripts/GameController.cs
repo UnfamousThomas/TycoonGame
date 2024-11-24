@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
     private void OnBusinessBuilt(Business business)
     {
         _builtBusinesses.Add(business);
-        if (business.businessData.businessName == "Headquarters")
+        if (business.businessData.businessName == "Headquarters") //todo same as below
         {
             Events.SetLevel(1);
         }
@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
 
     private void onBusinessUpgraded(Business business)
     {
-        if (business.businessData.businessName == "Headquarters")
+        if (business.businessData.businessName == "Headquarters") //TODO needs better logic probably?
         {
             Events.SetLevel(level+1);
         }

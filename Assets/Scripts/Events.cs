@@ -22,4 +22,7 @@ public static class Events
 
     public static event Action<Business> OnBusinessClicked;
     public static void ClickBusiness(Business business) => OnBusinessClicked?.Invoke(business);
+    
+    public static event Action<AudioClipGroup> OnAudioClipGroupPlayed;
+    public static void PlayAudioClipGroup(AudioClipGroup group) => OnAudioClipGroupPlayed?.Invoke(group);
 }

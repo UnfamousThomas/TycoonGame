@@ -60,7 +60,7 @@ public class LevelUpScreen : MonoBehaviour
 
     private void click()
     {
-        Events.FinishUpgradeBusiness(_business);
+        Events.StartUpgradeBusiness(_business);
         exit();
     }
     

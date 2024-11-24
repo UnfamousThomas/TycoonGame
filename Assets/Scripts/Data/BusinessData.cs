@@ -15,5 +15,6 @@ public class BusinessData : ScriptableObject
     public bool onlyOneAllowed;
     public float baseUpgradeTime;
     public float eachLevelTimeStep;
-    public Animation upgradeAnimation;
+    public Sprite upgradeSprite;
+    public Sprite baseSprite;
 }

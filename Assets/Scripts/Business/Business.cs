@@ -10,12 +10,14 @@ public class Business : MonoBehaviour
     private int level = 1;
     private float _currentMoneyProduction = 0;
     private float _timeWhenUpgradingFinished = 0;
+    private SpriteRenderer _spriteRenderer;
     
     private void Awake()
     {
         _currentMoneyProduction = businessData.baseMoneyProduction;
         Events.OnBusinessUpgradedFinish += OnBusinessUpgradedFinish;
         Events.OnBusinessUpgradedStart += OnBusinessUpgradedStart;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnDestroy()
@@ -26,16 +28,15 @@ public class Business : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Finish: " + _timeWhenUpgradingFinished);
+        Debug.Log("Current: " + Time.time);
         if (_timeWhenUpgradingFinished > Time.time)
         {
-            if (!businessData.upgradeAnimation.isPlaying)
-            {
-                businessData.upgradeAnimation.Play();
-            } 
+            _spriteRenderer.sprite = businessData.upgradeSprite;
         }
         else
         {
-            businessData.upgradeAnimation.Stop();
+            _spriteRenderer.sprite = businessData.baseSprite;
         }
     }
 

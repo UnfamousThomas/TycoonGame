@@ -24,4 +24,5 @@ MonoBehaviour:
   onlyOneAllowed: 0
   baseUpgradeTime: 5
   eachLevelTimeStep: 20
-  upgradeAnimation: {fileID: 0}
+  upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  baseSprite: {fileID: 2117511507, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}

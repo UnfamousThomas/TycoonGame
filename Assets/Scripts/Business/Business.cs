@@ -28,21 +28,24 @@ public class Business : MonoBehaviour
 
     private void Update()
     {
-        upgradeTimeLeft -= Time.deltaTime;
-
-        if (upgradeTimeLeft > 0)
+        if (isBeingUpgraded())
         {
-            _spriteRenderer.sprite = businessData.upgradeSprite;
-        }
-        else
-        {
-            _spriteRenderer.sprite = businessData.baseSprite;
+            upgradeTimeLeft -= Time.deltaTime;
+            if (upgradeTimeLeft > 0)
+            {
+                _spriteRenderer.sprite = businessData.upgradeSprite;
+            }
+            else
+            {
+                _spriteRenderer.sprite = businessData.icon;
+                OnBusinessUpgradedFinish(this);
+            }
         }
     }
 
     private void OnBusinessUpgradedFinish(Business business)
     {
-        if(business == this)
+        if (business == this)
         {
             level++;
             _currentMoneyProduction += businessData.moneyProductionStep;
@@ -51,7 +54,7 @@ public class Business : MonoBehaviour
 
     private void OnBusinessUpgradedStart(Business business)
     {
-        if(business != this) return;
+        if (business != this) return;
         upgradeTimeLeft = calculateNextUpgradeTime();
 
     }

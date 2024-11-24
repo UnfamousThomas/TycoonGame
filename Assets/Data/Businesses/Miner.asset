@@ -22,4 +22,7 @@ MonoBehaviour:
   businessPrefab: {fileID: 6686919787794484536, guid: c653392294d2243a182442285e6b3f67, type: 3}
   icon: {fileID: 2013861138, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   onlyOneAllowed: 0
+  baseUpgradeTime: 3
+  eachLevelTimeStep: 10
+  upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   sellingPriceMultiplier: 1

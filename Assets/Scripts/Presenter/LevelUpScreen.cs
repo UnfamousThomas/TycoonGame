@@ -88,7 +88,6 @@ public class LevelUpScreen : MonoBehaviour
         {
             sellButton.gameObject.SetActive(false);
         }
-
         else
         {
             sellButton.gameObject.SetActive(true);
@@ -99,11 +98,19 @@ public class LevelUpScreen : MonoBehaviour
             levelUpButton.interactable = false;
             levelUpImage.color = notAllowedLevelup;
         }
+        if (_business.isBeingUpgraded() && _business.upgradeTimeLeft > 0)
+        {
+            levelUpButton.interactable = false;
+            levelUpImage.color = notAllowedLevelup;
+
+        }
         else
         {
             levelUpButton.interactable = true;
             levelUpImage.color = allowedLevelup;
         }
+
+
     }
 
     private void onBusinessUpgraded(Business business)

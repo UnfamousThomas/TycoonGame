@@ -16,6 +16,8 @@ public class LevelUpScreen : MonoBehaviour
     private void Awake()
     {
         Events.OnBusinessClicked += OnBusinessClick;
+        Events.OnBusinessUpgraded += onBusinessUpgraded;
+        Events.OnSetMoney += onMoneyUpdate;
         levelUpButton.onClick.AddListener(LevelUp);
         exitButton.onClick.AddListener(Exit);
         sellButton.onClick.AddListener(Sell);
@@ -26,11 +28,7 @@ public class LevelUpScreen : MonoBehaviour
     {
         Events.OnBusinessClicked -= OnBusinessClick;
     }
-
-    private void Update()
-    {
-        Refresh();
-    }
+    
 
     private void OnBusinessClick(Business business)
     {
@@ -81,6 +79,21 @@ public class LevelUpScreen : MonoBehaviour
         {
             levelUpButton.interactable = true;
             levelUpImage.color = allowedLevelup;
+        }
+    }
+
+    private void onBusinessUpgraded(Business business)
+    {
+        if (_business != null && business == _business)
+        {
+            Refresh();
+        }
+    }
+
+    private void onMoneyUpdate(float money)
+    {
+        if(_business != null) {
+            Refresh();
         }
     }
 }

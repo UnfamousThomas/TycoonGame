@@ -16,6 +16,7 @@ public class AudioClipGroup : ScriptableObject
     public float pitchMax = 1;
     [Range(0, 2)]
     public float cooldown = 0.1f;
+    public AudioClipType audioType;
 
     public List<AudioClip> clips;
     private float _timestamp;
@@ -36,4 +37,13 @@ public class AudioClipGroup : ScriptableObject
         source.clip = clips[Random.Range(0, clips.Count)];
         source.Play();
     }
+}
+
+public enum AudioClipType
+{
+    Music,
+    SoundEffect,
+    Ambient,
+    UserInterface,
+    Notifications
 }

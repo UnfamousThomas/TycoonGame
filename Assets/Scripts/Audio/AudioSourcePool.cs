@@ -7,6 +7,7 @@
     {
 
         public AudioSource audioSourcePrefab;
+        public SettingsContainer settingsContainer;
         private List<AudioSource> _audioSources = new();
 
         private void Awake()
@@ -35,6 +36,19 @@
 
         private void PlayAudioGroup(AudioClipGroup audioGroup)
         {
-            audioGroup.Play(getSource());
+            audioGroup.Play(getSource(), getSetting(audioGroup.audioType));
+        }
+
+        private float getSetting(AudioClipType type)
+        {
+            foreach (var setting in settingsContainer.audioTypeSettings)
+            {
+                if (setting.audioType == type)
+                {
+                    return setting.Volume;
+                }
+            }
+
+            return 1;
         }
     }

@@ -38,7 +38,7 @@ public class Business : MonoBehaviour
             else
             {
                 _spriteRenderer.sprite = businessData.icon;
-                OnBusinessUpgradedFinish(this);
+                Events.FinishUpgradeBusiness(this);
             }
         }
     }
@@ -56,7 +56,7 @@ public class Business : MonoBehaviour
     {
         if (business != this) return;
         upgradeTimeLeft = calculateNextUpgradeTime();
-
+        Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
     }
 
     private float calculateNextUpgradeTime()

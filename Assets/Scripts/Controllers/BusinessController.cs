@@ -93,7 +93,6 @@ public class BusinessController : MonoBehaviour
         {
             Events.SetLevel(Events.RequestLevel()+1);
         }
-        Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
     }
     
 

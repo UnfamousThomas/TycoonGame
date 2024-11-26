@@ -26,24 +26,16 @@ public class AudioClipGroup : ScriptableObject
         _timestamp = 0;
     }
     
-    public void Play(AudioSource source)
+    public void Play(AudioSource source, float volumeSetting)
     {
         if (_timestamp > Time.time) return;
         if (clips.Count <= 0) return;
         _timestamp = Time.time + cooldown;
         
-        source.volume = Random.Range(volumeMin, volumeMax);
+        source.volume = Random.Range(volumeMin, volumeMax) * volumeSetting;
         source.pitch = Random.Range(pitchMin, pitchMax);
         source.clip = clips[Random.Range(0, clips.Count)];
         source.Play();
     }
 }
 
-public enum AudioClipType
-{
-    Music,
-    SoundEffect,
-    Ambient,
-    UserInterface,
-    Notifications
-}

@@ -61,14 +61,34 @@ public class BusinessBuilder : MonoBehaviour
         Collider2D[] overlaps = Physics2D.OverlapCircleAll(pos, 0.45f);
 
         if (Events.RequestMoney() < _currentBusinessData.cost) return false;
-        
+
+        bool found = _currentBusinessData.canBuildAnywhere;
         foreach (Collider2D overlap in overlaps)
         {
+            if (!found)
+            {
+                SpawnedResource spawnedResource = overlap.gameObject.GetComponent<SpawnedResource>();
+                if (spawnedResource != null)
+                {
+                    foreach (var resourceType in _currentBusinessData.canBeBuiltOn)
+                    {
+                        if (spawnedResource.resource.resourceType == resourceType)
+                        {
+                            found = true;
+                        }
+                    }
+                }
+            }
             if (!overlap.isTrigger)
                 return false;
         }
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            //Ignore clicks that are inside a UI overlay.
+            return false;
+        }
         
-        return true;
+        return found;
     }
 
     void TintSprite(Color col)
@@ -95,15 +115,11 @@ public class BusinessBuilder : MonoBehaviour
 
     void Build()
     {
-        //Verify that building area is free of other towers. (Turn this into a method)
-        //Make a note to remove gold from player later when gold is implemented
-        //Instantiate a tower prefab at the current position
-        //Disable the Tower Builder gameobject
         if (!IsFree(transform.position)) return;
+        //TODO correct cost
         Events.SetMoney(Events.RequestMoney() - _currentBusinessData.cost);
-        
-        
         Business business = Instantiate(_currentBusinessData.businessPrefab, transform.position, Quaternion.identity, null);
+        
         business.businessData = _currentBusinessData;
         Instantiate(buildEffect, business.transform).Play();
         gameObject.SetActive(false);

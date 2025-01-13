@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   businessName: Mailbox
   cost: 3
-  baseUpgradeCost: 5
   upgradeCostStep: 3
   amountOfUpgrades: 7
-  baseMoneyProduction: 3
-  moneyProductionStep: 5
+  productionType: 1
+  baseProductionRate: 5
+  productionStep: 2
+  canBuildAnywhere: 1
+  canBeBuiltOn: 
   businessPrefab: {fileID: 4393733913066814621, guid: eb79bda838e7ad948af4abdadca8e604, type: 3}
   icon: {fileID: 2117511507, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   onlyOneAllowed: 0
   baseUpgradeTime: 1
   eachLevelTimeStep: 1
-  upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   sellingPriceMultiplier: 1

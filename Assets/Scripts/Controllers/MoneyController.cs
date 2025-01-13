@@ -17,6 +17,7 @@ public class MoneyController : MonoBehaviour
     {
         if(!SaveSystem.saveExists()) {
             Events.SetMoney(initialMoney);
+            SaveSystem.Save();
         }
     }
 

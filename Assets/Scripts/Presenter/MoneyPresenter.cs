@@ -19,6 +19,18 @@ public class MoneyPresenter : MonoBehaviour
 
     public void OnSetMoney(float value)
     {
-       text.text = value + " $";
+       text.text = FormatMoney(value) + " $";
+    }
+    
+    private string FormatMoney(float value)
+    {
+        if (value >= 1_000_000_000)
+            return (value / 1_000_000_000f).ToString("0.##") + " bln";
+        else if (value >= 1_000_000)
+            return (value / 1_000_000f).ToString("0.##") + " mln";
+        else if (value >= 1_000)
+            return (value / 1_000f).ToString("0.##") + "k";
+        else
+            return value.ToString("0.##");
     }
 }

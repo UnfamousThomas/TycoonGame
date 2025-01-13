@@ -5,6 +5,7 @@ using System.Numerics;
 public class SaveData
 {
     public List<BusinessSaveData> businessSaveData;
+    public List<OreLocation> ores;
     public float level;
     public float money;
 }

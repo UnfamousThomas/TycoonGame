@@ -16,6 +16,6 @@ public class OilPresenter : ResourcePresenter
 
     public void OnSetOil(float value)
     {
-        text.text = value.ToString();
+        text.text = FormatValue(value);
     }
 }

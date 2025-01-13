@@ -12,6 +12,6 @@ public class IronPresenter : ResourcePresenter
 
     public void OnSetIron(float value)
     {
-        text.text = value.ToString();
+        text.text = FormatValue(value);
     }
 }

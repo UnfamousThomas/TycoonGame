@@ -16,6 +16,6 @@ public class WaterPresenter : ResourcePresenter
 
     public void OnSetWater(float value)
     {
-        text.text = value.ToString();
+        text.text = FormatValue(value);
     }
 }

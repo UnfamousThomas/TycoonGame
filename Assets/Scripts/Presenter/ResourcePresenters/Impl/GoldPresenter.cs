@@ -16,6 +16,6 @@ public class GoldPresenter : ResourcePresenter
 
     public void OnSetGold(float value)
     {
-        text.text = value.ToString();
+        text.text = FormatValue(value);
     }
 }

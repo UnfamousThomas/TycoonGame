@@ -14,6 +14,6 @@ public class RockPresenter : ResourcePresenter
 
     public void OnSetRocks(float value)
     {
-        text.text = value.ToString();
+        text.text = FormatValue(value);
     }
 }

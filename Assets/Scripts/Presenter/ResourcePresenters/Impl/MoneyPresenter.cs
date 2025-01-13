@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MoneyPresenter : MonoBehaviour
+public class MoneyPresenter : ResourcePresenter
 {
-    public TextMeshProUGUI text;
-    private void Awake()
+    public override void Awake()
     {
         Events.OnSetMoney += OnSetMoney;
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
         Events.OnSetMoney -= OnSetMoney;
     }

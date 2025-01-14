@@ -42,7 +42,7 @@ public class BusinessData : ScriptableObject
 
         foreach (ResourceFloatPair pair in cost)
         {
-            sb.Append(pair.value + " " + pair.type + "\t");
+            sb.Append(pair.value + " " + pair.type + System.Environment.NewLine);
         }
 
         return sb.ToString();

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class Business : MonoBehaviour
@@ -66,7 +67,7 @@ public class Business : MonoBehaviour
     {
         if (business != this) return;
         upgradeTimeLeft = calculateNextUpgradeTime();
-        Events.SetMoney(Events.RequestMoney() - business.calculateNextLevelCost());
+        BusinessBuilder.SubstractResources(business.calculateNextLevelCost());
     }
 
     private float calculateNextUpgradeTime()
@@ -81,15 +82,28 @@ public class Business : MonoBehaviour
         return true;
     }
 
-    public float calculateNextLevelCost()
+    public List<ResourceFloatPair> calculateNextLevelCost()
     {
-        //TODO change this to display correct data
-        // The basic idea is that there are is List<List<ResourceFloatPair>> in businessdata, which refers to the base cost.
-        // In there, inner list has a AND relationship, meaning you have to have all of the resources defined in ResourceFloatPairs.
-        // The outer list is a OR relation ship, meaning you have to all the resources in one of the inner lists.
-        // There is also a upgradeCostStep float, which is a float from [0] to [1], where each value in the ResourceFloatPairs is increased
-        // by some percentage depending on that, so if 1, then 100% of previous price.
-        return 1;
+        float costStep = businessData.upgradeCostStep;
+        List<ResourceFloatPair> nextLevelCost = new List<ResourceFloatPair>();
+        foreach (ResourceFloatPair pair in businessData.baseUpgradeCost)
+        {
+            ResourceFloatPair nextLevelPair = new ResourceFloatPair(pair.type, pair.value + level * costStep);
+            nextLevelCost.Add(nextLevelPair);
+        }
+        return nextLevelCost;
+    }
+    
+    public string GetCostText()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        foreach (ResourceFloatPair pair in calculateNextLevelCost())
+        {
+            sb.Append(pair.value + " " + pair.type + "\t");
+        }
+
+        return sb.ToString();
     }
 
     public ResourceType getProducedResource()
@@ -140,5 +154,20 @@ public class Business : MonoBehaviour
     public bool isBeingUpgraded()
     {
         return upgradeTimeLeft > 0;
+    }
+    
+    public bool CanBeUpgraded()
+    {
+        Dictionary<ResourceType, float> availableResources = ResourceController.GetResources();
+        List<ResourceFloatPair> nextLevelCost = calculateNextLevelCost();
+
+        for (var i = 0; i < nextLevelCost.Count; i++)
+        {
+            ResourceFloatPair currentPair = nextLevelCost[i];
+            if (availableResources[currentPair.type] < currentPair.value)
+                return false;
+        }
+
+        return true;
     }
 }

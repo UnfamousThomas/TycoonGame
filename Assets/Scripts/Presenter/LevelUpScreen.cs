@@ -81,7 +81,7 @@ public class LevelUpScreen : MonoBehaviour
     {
         levelText.text = "LEVEL: " + _business.getLevel();
         moneyProductionText.text = _business.getCurrentProduction() + " $/s";
-        levelRequiredText.text = "LEVEL UP: " + _business.calculateNextLevelCost() + " $";
+        levelRequiredText.text = "LEVEL UP: " + System.Environment.NewLine + _business.GetCostText();
 
         if (_business.businessData.businessName.ToLower() == "headquarters")
         {
@@ -92,7 +92,7 @@ public class LevelUpScreen : MonoBehaviour
             sellButton.gameObject.SetActive(true);
         }
         
-        if (_business.calculateNextLevelCost() >= Events.RequestMoney())
+        if (!_business.CanBeUpgraded())
         {
             levelUpButton.interactable = false;
             levelUpImage.color = notAllowedLevelup;

@@ -102,9 +102,10 @@ public class BusinessController : MonoBehaviour
         _businessData.Remove(business.businessData);
         Destroy(business.gameObject);
         
-        //TODO this probably needs some logic as well? 
+        //TODO this probably needs some logic as well?
+        // Let's just take the amount of the first resource in the list and give the player this amount of money.
         Events.SetMoney(
-            Events.RequestMoney() + business.businessData.cost * business.businessData.sellingPriceMultiplier
+            Events.RequestMoney() + business.businessData.cost[0].value * business.businessData.sellingPriceMultiplier
         );
     }
 

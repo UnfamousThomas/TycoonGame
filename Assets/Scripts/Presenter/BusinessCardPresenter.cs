@@ -23,9 +23,18 @@ public class BusinessCardPresenter : MonoBehaviour
 
         if (businessData != null)
         {
-            costText.text = businessData.cost.ToString();
+            costText.text = businessData.GetCostText();
             iconImage.sprite = businessData.icon;
             nameText.text = businessData.businessName;
+        }
+
+        if (!BusinessBuilder.CanBeBuilt(businessData))
+        {
+            _button.interactable = false;
+        }
+        else
+        {
+            _button.interactable = true;
         }
 
         Events.OnSetMoney += OnSetMoney;
@@ -51,15 +60,16 @@ public class BusinessCardPresenter : MonoBehaviour
         Events.SelectBusiness(businessData);
     }
 
+    //TODO fix if this causes lag because the logic was moved to Update().
     public void OnSetMoney(float value)
     {
-        if (value < businessData.cost)
-        {
-            _button.interactable = false;
-        }
-        else
-        {
-            _button.interactable = true;
-        }
+        // if (value < businessData.cost)
+        // {
+        //     _button.interactable = false;
+        // }
+        // else
+        // {
+        //     _button.interactable = true;
+        // }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public enum BusinessProductionType
@@ -11,8 +12,8 @@ public enum BusinessProductionType
 public class BusinessData : ScriptableObject
 {
     public string businessName;
-    public float cost;
-    public List<List<ResourceFloatPair>> baseUpgradeCost; //Internal list is a AND relationship, outer is OR.
+    public List<ResourceFloatPair> cost;
+    public List<ResourceFloatPair> baseUpgradeCost;
     
     public float upgradeCostStep; // Percentage to increase each resource cost per level
     public int amountOfUpgrades;
@@ -34,4 +35,18 @@ public class BusinessData : ScriptableObject
     public float eachLevelTimeStep;
     
     public float sellingPriceMultiplier; // What percentage of the cost will be returned when selling.
+
+    public string GetCostText()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        foreach (ResourceFloatPair pair in cost)
+        {
+            sb.Append(pair.value + " " + pair.type + "\t");
+        }
+
+        return sb.ToString();
+    }
+    
+    
 }

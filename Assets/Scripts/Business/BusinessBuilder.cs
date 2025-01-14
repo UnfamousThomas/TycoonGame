@@ -60,7 +60,7 @@ public class BusinessBuilder : MonoBehaviour
     {
         Collider2D[] overlaps = Physics2D.OverlapCircleAll(pos, 0.45f);
 
-        if (Events.RequestMoney() < _currentBusinessData.cost) return false;
+        if (!CanBeBuilt()) return false;
 
         bool found = _currentBusinessData.canBuildAnywhere;
         foreach (Collider2D overlap in overlaps)
@@ -116,13 +116,70 @@ public class BusinessBuilder : MonoBehaviour
     void Build()
     {
         if (!IsFree(transform.position)) return;
-        //TODO correct cost
-        Events.SetMoney(Events.RequestMoney() - _currentBusinessData.cost);
+        SubstractResources(_currentBusinessData.cost);
         Business business = Instantiate(_currentBusinessData.businessPrefab, transform.position, Quaternion.identity, null);
         
         business.businessData = _currentBusinessData;
         Instantiate(buildEffect, business.transform).Play();
         gameObject.SetActive(false);
         Events.BuildBusiness(business);
+    }
+    
+    private bool CanBeBuilt()
+    {
+        Dictionary<ResourceType, float> availableResources = ResourceController.GetResources();
+
+        for (var i = 0; i < _currentBusinessData.cost.Count; i++)
+        {
+            ResourceFloatPair currentPair = _currentBusinessData.cost[i];
+            if (availableResources[currentPair.type] < currentPair.value)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static bool CanBeBuilt(BusinessData businessData)
+    {
+        Dictionary<ResourceType, float> availableResources = ResourceController.GetResources();
+
+        for (var i = 0; i < businessData.cost.Count; i++)
+        {
+            ResourceFloatPair currentPair = businessData.cost[i];
+            if (availableResources[currentPair.type] < currentPair.value)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static void SubstractResources(List<ResourceFloatPair> cost)
+    {
+        foreach (ResourceFloatPair pair in cost)
+        {
+            ResourceType type = pair.type;
+            float value = pair.value;
+            switch (type)
+            {
+                case ResourceType.OIL:
+                    Events.SetOil(Events.RequestOil() - value);
+                    break;
+                case ResourceType.GOLD:
+                    Events.SetGold(Events.RequestGold() - value);
+                    break;
+                case ResourceType.WATER:
+                    Events.SetWater(Events.RequestWater() - value);
+                    break;
+                case ResourceType.IRON:
+                    Events.SetIron(Events.RequestIron() - value);
+                    break;
+                case ResourceType.ROCK:
+                    Events.SetRocks(Events.RequestRocks() - value);
+                    break;
+                case ResourceType.MONEY:
+                    Events.SetMoney(Events.RequestMoney() - value);
+                    break;
+            }
+        }
     }
 }

@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Headquarters
   m_EditorClassIdentifier: 
   businessName: Headquarters
-  cost: 10
+  cost:
+  - type: 5
+    value: 10
+  baseUpgradeCost:
+  - type: 5
+    value: 10
   upgradeCostStep: 100000
   amountOfUpgrades: 4
   productionType: 1

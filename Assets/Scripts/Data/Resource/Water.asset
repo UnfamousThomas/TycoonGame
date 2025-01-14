@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   resourceType: 3
-  icon: {fileID: 1071425924, guid: 5d98ec309e162ec48baa9939266dd7af, type: 3}
+  icon: {fileID: -540974101, guid: 5d98ec309e162ec48baa9939266dd7af, type: 3}
   ResourceSprites:
   - level: 0
     sprite: {fileID: 370247810, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}

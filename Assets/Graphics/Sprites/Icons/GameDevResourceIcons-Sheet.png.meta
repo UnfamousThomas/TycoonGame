@@ -100,7 +100,7 @@ TextureImporter:
       name: GameDevResourceIcons-Sheet_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 2
         y: 0
         width: 11
         height: 16
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 028445bdf83e5af4190f4acc4684b3ca
-      internalID: -1772176722
+      spriteID: e4508df001dc7914185501f83e7ce5da
+      internalID: -915470848
       vertices: []
       indices: 
       edges: []
@@ -121,7 +121,7 @@ TextureImporter:
       name: GameDevResourceIcons-Sheet_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 18
         y: 0
         width: 11
         height: 16
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00575184283bc274a956dd01487a1807
-      internalID: 1071425924
+      spriteID: 3a5a6068a06777042bc293ad4fea00b8
+      internalID: -540974101
       vertices: []
       indices: 
       edges: []
@@ -142,7 +142,7 @@ TextureImporter:
       name: GameDevResourceIcons-Sheet_2
       rect:
         serializedVersion: 2
-        x: 34
+        x: 33
         y: 2
         width: 11
         height: 11
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de4bdaefa1399a94894ec586bf653c83
-      internalID: 1261228504
+      spriteID: 709a661f5044b9e45a625c29641f2623
+      internalID: 1916800065
       vertices: []
       indices: 
       edges: []
@@ -163,7 +163,7 @@ TextureImporter:
       name: GameDevResourceIcons-Sheet_3
       rect:
         serializedVersion: 2
-        x: 50
+        x: 49
         y: 1
         width: 12
         height: 12
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a70eb428de0e14aaa207ee3f01bd31
-      internalID: 1644364642
+      spriteID: c9ee8f91deea34d458227b118bb8ae0b
+      internalID: 1250311120
       vertices: []
       indices: 
       edges: []
@@ -184,7 +184,7 @@ TextureImporter:
       name: GameDevResourceIcons-Sheet_4
       rect:
         serializedVersion: 2
-        x: 66
+        x: 65
         y: 1
         width: 12
         height: 12
@@ -195,8 +195,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b26e2fd310dd6e6489e9e09a112e4216
-      internalID: 1408549607
+      spriteID: 3dcf548b101486b48b8388132911a609
+      internalID: 781523932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameDevResourceIcons-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21e5ba0fea2b6848ba9fd401eeffc60
+      internalID: 739349557
       vertices: []
       indices: 
       edges: []
@@ -212,11 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GameDevResourceIcons-Sheet_0: -1772176722
-      GameDevResourceIcons-Sheet_1: 1071425924
-      GameDevResourceIcons-Sheet_2: 1261228504
-      GameDevResourceIcons-Sheet_3: 1644364642
-      GameDevResourceIcons-Sheet_4: 1408549607
+      GameDevResourceIcons-Sheet_0: -915470848
+      GameDevResourceIcons-Sheet_1: -540974101
+      GameDevResourceIcons-Sheet_2: 1916800065
+      GameDevResourceIcons-Sheet_3: 1250311120
+      GameDevResourceIcons-Sheet_4: 781523932
+      GameDevResourceIcons-Sheet_5: 739349557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

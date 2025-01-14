@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Solar Panel
   m_EditorClassIdentifier: 
   businessName: Solar Panel
-  cost: 10
+  cost: []
+  baseUpgradeCost: []
   upgradeCostStep: 5
   amountOfUpgrades: 50
   productionType: 1
@@ -22,8 +23,8 @@ MonoBehaviour:
   canBuildAnywhere: 1
   canBeBuiltOn: 
   businessPrefab: {fileID: 5356509741301499797, guid: 64897bbf452c994438904a4b816f7d20, type: 3}
-  icon: {fileID: -1902273962, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
-  upgradeSprite: {fileID: -800437893, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
+  icon: {fileID: 2035159352, guid: 82a242a4b59e07541a362bc415247499, type: 3}
+  upgradeSprite: {fileID: 1320484196, guid: 82a242a4b59e07541a362bc415247499, type: 3}
   onlyOneAllowed: 0
   baseUpgradeTime: 2
   eachLevelTimeStep: 2

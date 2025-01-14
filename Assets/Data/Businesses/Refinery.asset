@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Refinery
   m_EditorClassIdentifier: 
   businessName: Refinery
-  cost: 10000
+  cost: []
+  baseUpgradeCost: []
   upgradeCostStep: 3500
   amountOfUpgrades: 10
   productionType: 0
@@ -22,8 +23,8 @@ MonoBehaviour:
   canBuildAnywhere: 0
   canBeBuiltOn: 04000000
   businessPrefab: {fileID: 6686919787794484536, guid: 10f8c5031661f4b709e3f91dada23e4e, type: 3}
-  icon: {fileID: -1351083280, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
-  upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  icon: {fileID: -73534853, guid: 82a242a4b59e07541a362bc415247499, type: 3}
+  upgradeSprite: {fileID: -883502216, guid: 82a242a4b59e07541a362bc415247499, type: 3}
   onlyOneAllowed: 0
   baseUpgradeTime: 4
   eachLevelTimeStep: 15

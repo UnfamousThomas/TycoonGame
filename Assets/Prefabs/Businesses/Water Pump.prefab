@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1924989572851336816}
   - component: {fileID: 5356509741301499797}
   - component: {fileID: 363203640102156663}
-  - component: {fileID: -743440335196228546}
   m_Layer: 6
-  m_Name: Miner
+  m_Name: Water Pump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -11660529
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 863791582, guid: 82a242a4b59e07541a362bc415247499, type: 3}
+  m_Sprite: {fileID: 515452920, guid: 82a242a4b59e07541a362bc415247499, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948c9aebd051c1a44b134d3bc7e45f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  businessData: {fileID: 11400000, guid: efb7165728cc1466d8690b981f6bf9e0, type: 2}
+  businessData: {fileID: 11400000, guid: 6db40bf153e749242bb14ab278a1b19e, type: 2}
   upgradeTimeLeft: 0
 --- !u!61 &363203640102156663
 BoxCollider2D:
@@ -137,7 +136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.9375}
+    oldSize: {x: 0.9375, y: 0.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,24 +145,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
---- !u!95 &-743440335196228546
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5528144255305784005}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cc39233e4d7f3044086fbe35f89c1ec1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

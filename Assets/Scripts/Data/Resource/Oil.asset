@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Oil
   m_EditorClassIdentifier: 
   resourceType: 4
-  icon: {fileID: -1772176722, guid: 5d98ec309e162ec48baa9939266dd7af, type: 3}
+  icon: {fileID: -915470848, guid: 5d98ec309e162ec48baa9939266dd7af, type: 3}
   ResourceSprites:
   - level: 0
     sprite: {fileID: 2045405710, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}

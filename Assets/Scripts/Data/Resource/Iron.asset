@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc25b1c2fc2c984db6ebbe2df266234, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: 
-  ResourceName: Iron
+  resourceType: 2
+  icon: {fileID: 0}
   ResourceSprites:
   - level: 0
     sprite: {fileID: 347481121, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}

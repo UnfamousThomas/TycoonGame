@@ -7,6 +7,7 @@ using UnityEngine;
 public class Resource : ScriptableObject
 {
     public ResourceType resourceType;
+    public Sprite icon;
     public List<ResourceSpritePair> ResourceSprites;
     public Sprite GetSprite(ResourceLevel level)
     {

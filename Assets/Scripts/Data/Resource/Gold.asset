@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc25b1c2fc2c984db6ebbe2df266234, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  ResourceName: Gold
+  resourceType: 1
+  icon: {fileID: 0}
   ResourceSprites:
   - level: 0
     sprite: {fileID: -158858433, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}
@@ -23,4 +24,4 @@ MonoBehaviour:
   - level: 3
     sprite: {fileID: -675616342, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}
   - level: 4
-    sprite: {fileID: -675616342, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}
+    sprite: {fileID: 1122997509, guid: 5bb754c904b1d064fa0463f288aaf94d, type: 3}

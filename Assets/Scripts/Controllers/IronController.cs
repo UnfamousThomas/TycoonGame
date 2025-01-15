@@ -9,7 +9,7 @@ public class IronController : MonoBehaviour
     public float initialIron = 0;
     private void Awake()
     {
-        Events.OnSetIron += setIron;
+        Events.OnSetIron += SetIron;
         Events.OnRequestIron += getIron;
     }
 
@@ -22,12 +22,12 @@ public class IronController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnSetIron -= setIron;
+        Events.OnSetIron -= SetIron;
         Events.OnRequestIron -= getIron;
     }
     
 
-    private void setIron(float iron)
+    private void SetIron(float iron)
     {
         _iron = iron;
     }

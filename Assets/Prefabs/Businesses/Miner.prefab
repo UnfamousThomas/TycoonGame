@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1924989572851336816}
   - component: {fileID: 5356509741301499797}
   - component: {fileID: 363203640102156663}
-  - component: {fileID: -743440335196228546}
+  - component: {fileID: -7862327250787843677}
   m_Layer: 6
   m_Name: Miner
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -11660529
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 863791582, guid: 82a242a4b59e07541a362bc415247499, type: 3}
+  m_Sprite: {fileID: 1902892631, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.9375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,7 +146,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
---- !u!95 &-743440335196228546
+--- !u!95 &-7862327250787843677
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

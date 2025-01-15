@@ -23,8 +23,8 @@ MonoBehaviour:
   canBuildAnywhere: 0
   canBeBuiltOn: 000000000100000002000000
   businessPrefab: {fileID: 5356509741301499797, guid: 1f869349c748d174bb080f5f0483d1f4, type: 3}
-  icon: {fileID: 863791582, guid: 82a242a4b59e07541a362bc415247499, type: 3}
-  upgradeSprite: {fileID: 1901078912, guid: 82a242a4b59e07541a362bc415247499, type: 3}
+  icon: {fileID: 1902892631, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
+  upgradeSprite: {fileID: -1568731026, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   onlyOneAllowed: 0
   baseUpgradeTime: 3
   eachLevelTimeStep: 10

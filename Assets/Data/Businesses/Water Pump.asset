@@ -15,17 +15,17 @@ MonoBehaviour:
   businessName: Water Pump
   cost: []
   baseUpgradeCost: []
-  upgradeCostStep: 0
-  amountOfUpgrades: 0
+  upgradeCostStep: 10
+  amountOfUpgrades: 5
   productionType: 0
-  baseProductionRate: 0
-  productionStep: 0
+  baseProductionRate: 3
+  productionStep: 5
   canBuildAnywhere: 0
   canBeBuiltOn: 03000000
   businessPrefab: {fileID: 5356509741301499797, guid: 979a3ac81a94de643a32d7a3f52babce, type: 3}
-  icon: {fileID: 515452920, guid: 82a242a4b59e07541a362bc415247499, type: 3}
-  upgradeSprite: {fileID: 1232041515, guid: 82a242a4b59e07541a362bc415247499, type: 3}
+  icon: {fileID: -1053246597, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
+  upgradeSprite: {fileID: 1887539055, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   onlyOneAllowed: 0
-  baseUpgradeTime: 0
-  eachLevelTimeStep: 0
-  sellingPriceMultiplier: 0
+  baseUpgradeTime: 10
+  eachLevelTimeStep: 12
+  sellingPriceMultiplier: 2

@@ -60,15 +60,35 @@ public class BusinessBuilder : MonoBehaviour
     {
         Collider2D[] overlaps = Physics2D.OverlapCircleAll(pos, 0.45f);
 
-        if (Events.RequestMoney() < _currentBusinessData.cost) return false;
-        
+        if (!CanBeBuilt()) return false;
+
+        bool found = _currentBusinessData.canBuildAnywhere;
         foreach (Collider2D overlap in overlaps)
         {
+            if (!found)
+            {
+                SpawnedResource spawnedResource = overlap.gameObject.GetComponent<SpawnedResource>();
+                if (spawnedResource != null)
+                {
+                    foreach (var resourceType in _currentBusinessData.canBeBuiltOn)
+                    {
+                        if (spawnedResource.resource.resourceType == resourceType)
+                        {
+                            found = true;
+                        }
+                    }
+                }
+            }
             if (!overlap.isTrigger)
                 return false;
         }
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            //Ignore clicks that are inside a UI overlay.
+            return false;
+        }
         
-        return true;
+        return found;
     }
 
     void TintSprite(Color col)
@@ -95,18 +115,71 @@ public class BusinessBuilder : MonoBehaviour
 
     void Build()
     {
-        //Verify that building area is free of other towers. (Turn this into a method)
-        //Make a note to remove gold from player later when gold is implemented
-        //Instantiate a tower prefab at the current position
-        //Disable the Tower Builder gameobject
         if (!IsFree(transform.position)) return;
-        Events.SetMoney(Events.RequestMoney() - _currentBusinessData.cost);
-        
-        
+        SubstractResources(_currentBusinessData.cost);
         Business business = Instantiate(_currentBusinessData.businessPrefab, transform.position, Quaternion.identity, null);
+        
         business.businessData = _currentBusinessData;
         Instantiate(buildEffect, business.transform).Play();
         gameObject.SetActive(false);
         Events.BuildBusiness(business);
+    }
+    
+    private bool CanBeBuilt()
+    {
+        Dictionary<ResourceType, float> availableResources = ResourceController.GetResources();
+
+        for (var i = 0; i < _currentBusinessData.cost.Count; i++)
+        {
+            ResourceFloatPair currentPair = _currentBusinessData.cost[i];
+            if (availableResources[currentPair.type] < currentPair.value)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static bool CanBeBuilt(BusinessData businessData)
+    {
+        Dictionary<ResourceType, float> availableResources = ResourceController.GetResources();
+
+        for (var i = 0; i < businessData.cost.Count; i++)
+        {
+            ResourceFloatPair currentPair = businessData.cost[i];
+            if (availableResources[currentPair.type] < currentPair.value)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static void SubstractResources(List<ResourceFloatPair> cost)
+    {
+        foreach (ResourceFloatPair pair in cost)
+        {
+            ResourceType type = pair.type;
+            float value = pair.value;
+            switch (type)
+            {
+                case ResourceType.OIL:
+                    Events.SetOil(Events.RequestOil() - value);
+                    break;
+                case ResourceType.GOLD:
+                    Events.SetGold(Events.RequestGold() - value);
+                    break;
+                case ResourceType.WATER:
+                    Events.SetWater(Events.RequestWater() - value);
+                    break;
+                case ResourceType.IRON:
+                    Events.SetIron(Events.RequestIron() - value);
+                    break;
+                case ResourceType.ROCK:
+                    Events.SetRocks(Events.RequestRocks() - value);
+                    break;
+                case ResourceType.MONEY:
+                    Events.SetMoney(Events.RequestMoney() - value);
+                    break;
+            }
+        }
     }
 }

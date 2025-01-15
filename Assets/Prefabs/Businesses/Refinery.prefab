@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2490320231948772684}
   - component: {fileID: 6686919787794484536}
   - component: {fileID: 8753734060565423734}
+  - component: {fileID: -1074012176503944164}
   m_Layer: 6
   m_Name: Refinery
   m_TagString: Untagged
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: -11660529
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1351083280, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  m_Sprite: {fileID: 765889276, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.13}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   businessData: {fileID: 11400000, guid: efb7165728cc1466d8690b981f6bf9e0, type: 2}
+  upgradeTimeLeft: 0
 --- !u!61 &8753734060565423734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,8 +137,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5625, y: 1}
-    newSize: {x: 0.1, y: 0.13}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -144,3 +146,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.625, y: 0.8125}
   m_EdgeRadius: 0
+--- !u!95 &-1074012176503944164
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136921758644211182}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d58141c99b7f0d4bbbb2a4750275395, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

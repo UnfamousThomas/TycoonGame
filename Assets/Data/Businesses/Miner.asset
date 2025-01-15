@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: Miner
   m_EditorClassIdentifier: 
   businessName: Miner
-  cost: 1000
-  baseUpgradeCost: 200
+  cost: []
+  baseUpgradeCost: []
   upgradeCostStep: 300
   amountOfUpgrades: 10
-  baseMoneyProduction: 50
-  moneyProductionStep: 50
-  businessPrefab: {fileID: 6686919787794484536, guid: c653392294d2243a182442285e6b3f67, type: 3}
-  icon: {fileID: 2013861138, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  productionType: 0
+  baseProductionRate: 1
+  productionStep: 3
+  canBuildAnywhere: 0
+  canBeBuiltOn: 000000000100000002000000
+  businessPrefab: {fileID: 5356509741301499797, guid: 1f869349c748d174bb080f5f0483d1f4, type: 3}
+  icon: {fileID: 1902892631, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
+  upgradeSprite: {fileID: -1568731026, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   onlyOneAllowed: 0
   baseUpgradeTime: 3
   eachLevelTimeStep: 10
-  upgradeSprite: {fileID: -1562449856, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   sellingPriceMultiplier: 1

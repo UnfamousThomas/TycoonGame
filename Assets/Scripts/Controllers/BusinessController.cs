@@ -102,8 +102,10 @@ public class BusinessController : MonoBehaviour
         _businessData.Remove(business.businessData);
         Destroy(business.gameObject);
         
+        //TODO this probably needs some logic as well?
+        // Let's just take the amount of the first resource in the list and give the player this amount of money.
         Events.SetMoney(
-            Events.RequestMoney() + business.businessData.cost * business.businessData.sellingPriceMultiplier
+            Events.RequestMoney() + business.businessData.cost[0].value * business.businessData.sellingPriceMultiplier
         );
     }
 
@@ -120,11 +122,34 @@ public class BusinessController : MonoBehaviour
     private void AddMoney()
     {
         float money = 0;
+        Dictionary<ResourceType, float> productions = new Dictionary<ResourceType, float>();
         foreach (Business business in _builtBusinesses)
-        { 
-            money += business.getCurrentProduction();
+        {
+            ResourceType productionType = business.getProducedResource();
+            float production = business.getCurrentProduction();
+            switch (productionType)
+            {
+                case ResourceType.OIL:
+                    Events.SetOil(Events.RequestOil() + production);
+                    break;
+                case ResourceType.GOLD:
+                    Events.SetGold(Events.RequestGold() + production);
+                    break;
+                case ResourceType.WATER:
+                    Events.SetWater(Events.RequestWater() + production);
+                    break;
+                case ResourceType.IRON:
+                    Events.SetIron(Events.RequestIron() + production);
+                    break;
+                case ResourceType.ROCK:
+                    Events.SetRocks(Events.RequestRocks() + production);
+                    break;
+                case ResourceType.MONEY:
+                    money += production;
+                    Events.SetMoney(Events.RequestMoney() + production);
+                    break;
+            }
         }
-        Events.SetMoney(Events.RequestMoney() + money);
         Events.SetMoneyProduction(money);
     }
 

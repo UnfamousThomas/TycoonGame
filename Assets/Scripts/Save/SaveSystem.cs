@@ -27,6 +27,12 @@ public class SaveSystem
             businessSaveData = saveData,
             level = Events.RequestLevel(),
             money = Events.RequestMoney(),
+            rocks = Events.RequestRocks(),
+            oil = Events.RequestOil(),
+            iron = Events.RequestIron(),
+            water = Events.RequestWater(),
+            gold = Events.RequestGold(),
+            ores = Events.RequestOreLocations()
         }, true);
         File.WriteAllText(savePath, json);
         Debug.Log($"Game saved to {savePath}");

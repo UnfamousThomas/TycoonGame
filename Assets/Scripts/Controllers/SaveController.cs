@@ -24,8 +24,18 @@ public class SaveController: MonoBehaviour
         if(data == null) return;
         Debug.Log("Loaded Level: " + data.level);
         Debug.Log("Loaded money: " + data.money);
+        Debug.Log("Loaded rocks: " + data.rocks);
+        Debug.Log("Loaded oil: " + data.oil);
+        Debug.Log("Loaded iron: " + data.iron);
+        Debug.Log("Loaded water: " + data.water);
+        Debug.Log("Loaded gold: " + data.gold);
         Events.SetLevel(data.level);
         Events.SetMoney(data.money);
+        Events.SetRocks(data.rocks);
+        Events.SetOil(data.oil);
+        Events.SetIron(data.iron);
+        Events.SetWater(data.water);
+        Events.SetGold(data.gold);
         Events.LoadBusinesses(createBusinesses(data));
     }
 

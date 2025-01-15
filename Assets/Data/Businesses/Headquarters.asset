@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Headquarters
   m_EditorClassIdentifier: 
   businessName: Headquarters
-  cost: 10
-  baseUpgradeCost: 10000
+  cost:
+  - type: 5
+    value: 10
+  baseUpgradeCost:
+  - type: 5
+    value: 10
   upgradeCostStep: 100000
   amountOfUpgrades: 4
-  baseMoneyProduction: 10
-  moneyProductionStep: 100
+  productionType: 1
+  baseProductionRate: 10
+  productionStep: 5
+  canBuildAnywhere: 1
+  canBeBuiltOn: 
   businessPrefab: {fileID: 6686919787794484536, guid: c0af4b6c6f3b0ca4c832b67f55754ff8, type: 3}
-  icon: {fileID: 788982356, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
+  icon: {fileID: 859217392, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
+  upgradeSprite: {fileID: -1694609028, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   onlyOneAllowed: 1
   baseUpgradeTime: 20
   eachLevelTimeStep: 60
-  upgradeSprite: {fileID: -692662165, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
-  baseSprite: {fileID: -387818128, guid: b900aebf0386c6c4cb4c70add67a3cef, type: 3}
   sellingPriceMultiplier: 1

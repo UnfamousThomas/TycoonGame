@@ -1981,6 +1981,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuSceneName: MainMenuScene
+  businessBuilder: {fileID: 1321709408}
+  chooseBuildings: {fileID: 20692545}
+  levelUpScreen: {fileID: 1492654101}
 --- !u!1 &598790153
 GameObject:
   m_ObjectHideFlags: 0
@@ -89519,7 +89522,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 20692545}
-  openAnimation: {fileID: 20692552}
 --- !u!1 &1355453740
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,30 +76,29 @@ public class BuildingInfoPresenter : MonoBehaviour
         UpdateResourcePresenters(business);
         upgradeTime.text = FormatTime(business.calculateNextUpgradeTime());
         openAnimation.enabled = true;
-        
         CheckIfUpgrade(business);
+        gameObject.SetActive(true);
     }
     
-    private string FormatTime(float totalSeconds)
+    private string FormatTime(float totalSecondsFloat)
     {
-        float days = totalSeconds / (24 * 3600);
-        totalSeconds %= 24 * 3600;
-        float hours = totalSeconds / 3600;
-        totalSeconds %= 3600;
-        float minutes = totalSeconds / 60;
-        float seconds = totalSeconds % 60;
+        int totalSeconds = (int)totalSecondsFloat;
+        TimeSpan timeSpan = TimeSpan.FromSeconds(totalSeconds);
+        
+        string result = "";
 
-        string formattedTime = "";
-        if (days > 0)
-            formattedTime += days + "d";
-        if (hours > 0)
-            formattedTime += hours + "h";
-        if (minutes > 0)
-            formattedTime += minutes + "m";
-        if (seconds > 0 || formattedTime == "") 
-            formattedTime += seconds + "s";
+        if (timeSpan.Days > 0)
+            result += $"{timeSpan.Days}d ";
 
-        return formattedTime;
+        if (timeSpan.Hours > 0 || timeSpan.Days > 0)
+            result += $"{timeSpan.Hours}h ";
+
+        if (timeSpan.Minutes > 0 || timeSpan.Hours > 0 || timeSpan.Days > 0) // Display minutes if hours or days are displayed
+            result += $"{timeSpan.Minutes}m ";
+
+        result += $"{timeSpan.Seconds}s";
+
+        return result.Trim();
     }
     private void onBusinessUpgraded(Business business)
     {
@@ -216,6 +215,14 @@ public class BuildingInfoPresenter : MonoBehaviour
                     Debug.LogWarning($"Unhandled resource type: {costPair.type}");
                     break;
             }
+        }
+    }
+    
+    private void Update()
+    {
+        if (Input.GetButton("ExitMenu"))
+        {
+            Exit();
         }
     }
 }

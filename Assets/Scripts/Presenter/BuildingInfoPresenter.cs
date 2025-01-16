@@ -1,0 +1,197 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class BuildingInfoPresenter : MonoBehaviour
+{
+    
+    public Image buildingImage;
+    public TextMeshProUGUI buildingName;
+    public TextMeshProUGUI level;
+    public Button exitButton;
+    public Button upgradeButton;
+    public RectTransform upgradePanel;
+
+    public ResourceCostPresenter goldPresenter;
+    public ResourceCostPresenter ironPresenter;
+    public ResourceCostPresenter moneyPresenter;
+    public ResourceCostPresenter waterPresenter;
+    public ResourceCostPresenter oilPresenter;
+    public ResourceCostPresenter stonePresenter;
+
+    public ScalingAnimation openAnimation;
+    public ScalingAnimation closeAnimation;
+    public AudioClipGroup clickGroup;
+    
+    private Business _selectedBusiness;
+    private void Awake()
+    {
+        Events.OnBusinessClicked += OnBusinessClicked;
+        Events.OnBusinessUpgradedFinish += onBusinessUpgraded;
+        Events.OnSetMoney += onResourceUpdate;
+        Events.OnSetGold += onResourceUpdate;
+        Events.OnSetIron += onResourceUpdate;
+        Events.OnSetOil += onResourceUpdate;
+        Events.OnSetWater += onResourceUpdate;
+        Events.OnSetRocks += onResourceUpdate;
+        
+        exitButton.onClick.AddListener(OnExitClicked);
+        
+        goldPresenter.gameObject.SetActive(false);
+        ironPresenter.gameObject.SetActive(false);
+        moneyPresenter.gameObject.SetActive(false);
+        oilPresenter.gameObject.SetActive(false);
+        stonePresenter.gameObject.SetActive(false);
+        waterPresenter.gameObject.SetActive(false);
+        
+        upgradePanel.gameObject.SetActive(false);
+    }
+    
+
+    private void OnDestroy()
+    {
+        Events.OnBusinessUpgradedFinish -= onBusinessUpgraded;
+        Events.OnBusinessClicked -= OnBusinessClicked;
+        Events.OnSetMoney -= onResourceUpdate;
+        Events.OnSetGold -= onResourceUpdate;
+        Events.OnSetIron -= onResourceUpdate;
+        Events.OnSetOil -= onResourceUpdate;
+        Events.OnSetWater -= onResourceUpdate;
+        Events.OnSetRocks -= onResourceUpdate;
+    }
+    
+
+    private void OnBusinessClicked(Business business)
+    {
+        _selectedBusiness = business;
+        BusinessData businessData = business.businessData;
+        buildingImage.sprite = businessData.icon;
+        buildingName.text = businessData.name;
+        level.text = "Level: " + business.getLevel();
+        UpdateResourcePresenters(business);
+        upgradePanel.gameObject.SetActive(true);
+
+        CheckIfUpgrade(business);
+    }
+    
+    private void onBusinessUpgraded(Business business)
+    {
+        if (_selectedBusiness != null && business == _selectedBusiness)
+        {
+            CheckIfUpgrade(business);
+            UpdateResourcePresenters(business);
+        }
+    }
+    
+    private void onResourceUpdate(float value)
+    {
+        if(_selectedBusiness != null) {
+            CheckIfUpgrade(_selectedBusiness);
+        }
+    }
+
+    private void Sell()
+    {
+        Events.SellBusiness(_selectedBusiness);
+        Events.PlayAudioClipGroup(clickGroup);
+        Exit();
+    }
+
+    private void OnExitClicked()
+    {
+        Events.PlayAudioClipGroup(clickGroup);
+        Exit();
+    }
+    private void Exit()
+    {
+        closeAnimation.enabled = true;
+    }
+    
+    private void CheckIfUpgrade(Business business)
+    {
+        if (business.CanBeUpgraded())
+        {
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeButton.interactable = false;
+        }
+        
+        if (business.isUpgradable())
+        {
+            upgradeButton.gameObject.SetActive(true); 
+        }
+        else
+        {
+            upgradeButton.gameObject.SetActive(false); 
+        }
+
+        if (business.upgradeTimeLeft > 0)
+        {
+            upgradeButton.interactable = false;
+        }
+
+        if (!upgradeButton.interactable)
+        {
+            upgradeButton.image.color = Color.red;
+        }
+        else
+        {
+            upgradeButton.image.color = Color.white;
+        }
+    }
+
+    void UpdateResourcePresenters(Business business)
+    {
+        goldPresenter.gameObject.SetActive(false);
+        ironPresenter.gameObject.SetActive(false);
+        moneyPresenter.gameObject.SetActive(false);
+        waterPresenter.gameObject.SetActive(false);
+        oilPresenter.gameObject.SetActive(false);
+        stonePresenter.gameObject.SetActive(false);
+
+        foreach (var costPair in business.calculateNextLevelCost())
+        {
+            switch (costPair.type)
+            {
+                case ResourceType.MONEY:
+                    moneyPresenter.gameObject.SetActive(true);
+                    moneyPresenter.SetCost(costPair.value);
+                    break;
+
+                case ResourceType.GOLD:
+                    goldPresenter.gameObject.SetActive(true);
+                    goldPresenter.SetCost(costPair.value);
+                    break;
+
+                case ResourceType.IRON:
+                    ironPresenter.gameObject.SetActive(true);
+                    ironPresenter.SetCost(costPair.value);
+                    break;
+
+                case ResourceType.WATER:
+                    waterPresenter.gameObject.SetActive(true);
+                    waterPresenter.SetCost(costPair.value);
+                    break;
+
+                case ResourceType.OIL:
+                    oilPresenter.gameObject.SetActive(true);
+                    oilPresenter.SetCost(costPair.value);
+                    break;
+
+                case ResourceType.ROCK:
+                    stonePresenter.gameObject.SetActive(true);
+                    stonePresenter.SetCost(costPair.value);
+                    break;
+
+                default:
+                    Debug.LogWarning($"Unhandled resource type: {costPair.type}");
+                    break;
+            }
+        }
+    }
+}

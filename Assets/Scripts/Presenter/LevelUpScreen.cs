@@ -92,12 +92,8 @@ public class LevelUpScreen : MonoBehaviour
             sellButton.gameObject.SetActive(true);
         }
         
-        if (!_business.CanBeUpgraded())
-        {
-            levelUpButton.interactable = false;
-            levelUpImage.color = notAllowedLevelup;
-        }
-        if (_business.isBeingUpgraded() && _business.upgradeTimeLeft > 0)
+        
+        if ((_business.isBeingUpgraded() && _business.upgradeTimeLeft > 0) || !_business.CanBeUpgraded())
         {
             levelUpButton.interactable = false;
             levelUpImage.color = notAllowedLevelup;

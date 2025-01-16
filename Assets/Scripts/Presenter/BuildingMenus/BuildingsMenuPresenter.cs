@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BuildingsMenuPresenter : MonoBehaviour
 {
     private Button _button;
-    public GameObject panel;
+    public BuildingsMenuOpenerCloser openerCloser;
 
     private void Awake()
     {
@@ -20,19 +20,19 @@ public class BuildingsMenuPresenter : MonoBehaviour
 
     public void Pressed()
     {
-        panel.SetActive(true);
+        openerCloser.OpenMenu();
     }
 
     private void Update()
     {
-        if (Input.GetButton("Build"))
+        if (Input.GetButtonDown("Build"))
         {
-                panel.SetActive(true);
+            Pressed();
         }
 
         if (Input.GetButton("ExitMenu"))
         {
-            panel.SetActive(false);
+            openerCloser.CloseMenu();
         }
     }
 }

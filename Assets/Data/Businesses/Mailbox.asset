@@ -29,3 +29,5 @@ MonoBehaviour:
   baseUpgradeTime: 1
   eachLevelTimeStep: 1
   sellingPriceMultiplier: 1
+  description: Mailbox to communicate with other corporations, and earn money for
+    it.

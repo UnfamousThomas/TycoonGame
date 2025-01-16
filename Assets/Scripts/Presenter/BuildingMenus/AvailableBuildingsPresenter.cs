@@ -8,7 +8,7 @@ public class AvailableBuildingsPresenter : MonoBehaviour
 
     public BusinessCardPresenter prefab;
     public BusinessController businessController;
-    
+    public BuildingsMenuInfoPresenter buildingsMenuInfoPresenter;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,7 @@ public class AvailableBuildingsPresenter : MonoBehaviour
             BusinessCardPresenter presenter = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity, transform);
             presenter.businessData = business;
             presenter.businessController = businessController;
+            presenter.buildingsMenuInfo = buildingsMenuInfoPresenter;
         }
     }
     

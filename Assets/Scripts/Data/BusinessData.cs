@@ -36,17 +36,7 @@ public class BusinessData : ScriptableObject
     
     public float sellingPriceMultiplier; // What percentage of the cost will be returned when selling.
 
-    public string GetCostText()
-    {
-        StringBuilder sb = new StringBuilder();
+    public string description;
 
-        foreach (ResourceFloatPair pair in cost)
-        {
-            sb.Append(pair.value + " " + pair.type + System.Environment.NewLine);
-        }
 
-        return sb.ToString();
-    }
-    
-    
 }

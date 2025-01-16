@@ -29,3 +29,4 @@ MonoBehaviour:
   baseUpgradeTime: 4
   eachLevelTimeStep: 15
   sellingPriceMultiplier: 1
+  description: A refinery for refining oil, should be placed on a oil node.

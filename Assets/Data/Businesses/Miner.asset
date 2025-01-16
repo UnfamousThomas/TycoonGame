@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Miner
   m_EditorClassIdentifier: 
   businessName: Miner
-  cost: []
+  cost:
+  - type: 5
+    value: 10
   baseUpgradeCost: []
   upgradeCostStep: 300
   amountOfUpgrades: 10
@@ -29,3 +31,5 @@ MonoBehaviour:
   baseUpgradeTime: 3
   eachLevelTimeStep: 10
   sellingPriceMultiplier: 1
+  description: 'An advancer ore miner, which uses a combination of dark matter and
+    quantum entanglement to capture ores that do not yet exist. '

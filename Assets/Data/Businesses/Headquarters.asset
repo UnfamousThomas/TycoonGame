@@ -33,3 +33,5 @@ MonoBehaviour:
   baseUpgradeTime: 20
   eachLevelTimeStep: 60
   sellingPriceMultiplier: 1
+  description: The Headquarters of your space corporation, where you live and decisions
+    get made.

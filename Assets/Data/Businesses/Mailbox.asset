@@ -24,8 +24,10 @@ MonoBehaviour:
   canBeBuiltOn: 
   businessPrefab: {fileID: 4393733913066814621, guid: eb79bda838e7ad948af4abdadca8e604, type: 3}
   icon: {fileID: -552322730, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
-  upgradeSprite: {fileID: 2061622277, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
+  upgradeSprite: {fileID: -1315730201, guid: 474f4bec08a02fc4ca3879a744c5a971, type: 3}
   onlyOneAllowed: 0
   baseUpgradeTime: 1
   eachLevelTimeStep: 1
   sellingPriceMultiplier: 1
+  description: Mailbox to communicate with other corporations, and earn money for
+    it.

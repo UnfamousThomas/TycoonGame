@@ -29,3 +29,4 @@ MonoBehaviour:
   baseUpgradeTime: 2
   eachLevelTimeStep: 2
   sellingPriceMultiplier: 1
+  description: Generates electricity which is sold to other corporations for money.

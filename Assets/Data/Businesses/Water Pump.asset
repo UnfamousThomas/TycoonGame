@@ -29,3 +29,5 @@ MonoBehaviour:
   baseUpgradeTime: 10
   eachLevelTimeStep: 12
   sellingPriceMultiplier: 2
+  description: A water pump, which pumps water out of the planet to be sold to poor
+    planets for a profit.

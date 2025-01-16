@@ -12,12 +12,18 @@ public class BusinessCardPresenter : MonoBehaviour
 
     private Button _button;
     public BusinessController businessController;
+    public BuildingsMenuInfoPresenter buildingsMenuInfo;
 
     private void Awake()
     {
         _button = GetComponent<Button>();
         if (_button != null)
             _button.onClick.AddListener(Pressed);
+    }
+
+    private void Start()
+    {
+        buildingsMenuInfo.selectBusiness(businessData, false); //Just so correct data in the menu
     }
 
     private void Update()
@@ -27,15 +33,7 @@ public class BusinessCardPresenter : MonoBehaviour
             iconImage.sprite = businessData.icon;
             nameText.text = businessData.businessName;
         }
-
-        if (!BusinessBuilder.CanBeBuilt(businessData))
-        {
-            _button.interactable = false;
-        }
-        else
-        {
-            _button.interactable = true;
-        }
+        
 
         if (businessController.isBusinessBuilt(businessData) &&
         businessData.onlyOneAllowed)
@@ -46,7 +44,7 @@ public class BusinessCardPresenter : MonoBehaviour
     
     public void Pressed()
     {
-        //Events.SelectBusiness(businessData);
+        buildingsMenuInfo.selectBusiness(businessData, true);
     }
 
 }

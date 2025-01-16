@@ -42,6 +42,7 @@ public class BuildingInfoPresenter : MonoBehaviour
         
         exitButton.onClick.AddListener(OnExitClicked);
         sellButton.onClick.AddListener(Sell);
+        upgradeButton.onClick.AddListener(LevelUp);
         goldPresenter.gameObject.SetActive(false);
         ironPresenter.gameObject.SetActive(false);
         moneyPresenter.gameObject.SetActive(false);
@@ -78,6 +79,12 @@ public class BuildingInfoPresenter : MonoBehaviour
         openAnimation.enabled = true;
         CheckIfUpgrade(business);
         gameObject.SetActive(true);
+    }
+    
+    private void LevelUp()
+    {
+        Events.PlayAudioClipGroup(clickGroup);
+        Events.StartUpgradeBusiness(_selectedBusiness);
     }
     
     private string FormatTime(float totalSecondsFloat)

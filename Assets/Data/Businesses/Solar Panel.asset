@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   businessName: Solar Panel
   cost: []
-  baseUpgradeCost: []
+  baseUpgradeCost:
+  - type: 0
+    value: 2
   upgradeCostStep: 5
   amountOfUpgrades: 50
   productionType: 1

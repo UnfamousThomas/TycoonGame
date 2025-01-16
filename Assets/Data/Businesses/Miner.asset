@@ -14,12 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   businessName: Miner
   cost:
-  - type: 0
+  - type: 5
     value: 10
-  - type: 2
-    value: 2
-  - type: 4
-    value: 3
   baseUpgradeCost: []
   upgradeCostStep: 300
   amountOfUpgrades: 10

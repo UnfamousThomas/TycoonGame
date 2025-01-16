@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,10 @@ public class BuildingInfoPresenter : MonoBehaviour
     public TextMeshProUGUI buildingName;
     public TextMeshProUGUI level;
     public Button exitButton;
+    public Button sellButton;
     public Button upgradeButton;
     public RectTransform upgradePanel;
+    public TextMeshProUGUI upgradeTime;
 
     public ResourceCostPresenter goldPresenter;
     public ResourceCostPresenter ironPresenter;
@@ -39,7 +42,7 @@ public class BuildingInfoPresenter : MonoBehaviour
         Events.OnSetRocks += onResourceUpdate;
         
         exitButton.onClick.AddListener(OnExitClicked);
-        
+        sellButton.onClick.AddListener(Sell);
         goldPresenter.gameObject.SetActive(false);
         ironPresenter.gameObject.SetActive(false);
         moneyPresenter.gameObject.SetActive(false);
@@ -72,11 +75,33 @@ public class BuildingInfoPresenter : MonoBehaviour
         buildingName.text = businessData.name;
         level.text = "Level: " + business.getLevel();
         UpdateResourcePresenters(business);
-        upgradePanel.gameObject.SetActive(true);
-
+        upgradeTime.text = FormatTime(business.calculateNextUpgradeTime());
+        openAnimation.enabled = true;
+        
         CheckIfUpgrade(business);
     }
     
+    private string FormatTime(float totalSeconds)
+    {
+        float days = totalSeconds / (24 * 3600);
+        totalSeconds %= 24 * 3600;
+        float hours = totalSeconds / 3600;
+        totalSeconds %= 3600;
+        float minutes = totalSeconds / 60;
+        float seconds = totalSeconds % 60;
+
+        string formattedTime = "";
+        if (days > 0)
+            formattedTime += days + "d";
+        if (hours > 0)
+            formattedTime += hours + "h";
+        if (minutes > 0)
+            formattedTime += minutes + "m";
+        if (seconds > 0 || formattedTime == "") 
+            formattedTime += seconds + "s";
+
+        return formattedTime;
+    }
     private void onBusinessUpgraded(Business business)
     {
         if (_selectedBusiness != null && business == _selectedBusiness)

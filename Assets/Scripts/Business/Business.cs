@@ -70,7 +70,7 @@ public class Business : MonoBehaviour
         BusinessBuilder.SubstractResources(business.calculateNextLevelCost());
     }
 
-    private float calculateNextUpgradeTime()
+    public float calculateNextUpgradeTime()
     {
         return  (businessData.baseUpgradeTime) +
                (businessData.eachLevelTimeStep * level);

@@ -15,7 +15,6 @@ public class BuildingInfoPresenter : MonoBehaviour
     public Button exitButton;
     public Button sellButton;
     public Button upgradeButton;
-    public RectTransform upgradePanel;
     public TextMeshProUGUI upgradeTime;
 
     public ResourceCostPresenter goldPresenter;
@@ -49,8 +48,8 @@ public class BuildingInfoPresenter : MonoBehaviour
         oilPresenter.gameObject.SetActive(false);
         stonePresenter.gameObject.SetActive(false);
         waterPresenter.gameObject.SetActive(false);
-        
-        upgradePanel.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+
     }
     
 

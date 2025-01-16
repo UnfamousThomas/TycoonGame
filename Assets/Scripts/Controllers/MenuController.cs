@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
     public string mainMenuSceneName;
     public GameObject businessBuilder;
     public GameObject chooseBuildings;
-    public GameObject levelUpScreen;
+    public GameObject upgradePanel;
     
     private void Update()
     {
@@ -24,6 +24,6 @@ public class MenuController : MonoBehaviour
     {
         return businessBuilder.activeSelf
                || chooseBuildings.activeSelf
-               || levelUpScreen.activeSelf;
+               || upgradePanel.activeSelf;
     }
 }

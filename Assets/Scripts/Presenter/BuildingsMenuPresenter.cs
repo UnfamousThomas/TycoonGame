@@ -29,10 +29,6 @@ public class BuildingsMenuPresenter : MonoBehaviour
         {
                 panel.SetActive(true);
         }
-
-        if (Input.GetButton("ExitMenu"))
-        {
-            panel.SetActive(false);
-        }
+        
     }
 }

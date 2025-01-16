@@ -12,8 +12,8 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetButton("ExitMenu"))
         {
-            SaveSystem.Save();
-            SceneManager.LoadScene(mainMenuSceneName);
+            //SaveSystem.Save();
+            //SceneManager.LoadScene(mainMenuSceneName);
         }
     }
 }

@@ -122,7 +122,6 @@ public class BusinessController : MonoBehaviour
     private void AddMoney()
     {
         float money = 0;
-        Dictionary<ResourceType, float> productions = new Dictionary<ResourceType, float>();
         foreach (Business business in _builtBusinesses)
         {
             ResourceType productionType = business.getProducedResource();

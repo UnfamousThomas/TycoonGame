@@ -156,7 +156,8 @@ public class BuildingInfoPresenter : MonoBehaviour
         
         if (business.isUpgradable())
         {
-            upgradeButton.gameObject.SetActive(true); 
+            upgradeSection.gameObject.SetActive(true);
+            maxLevelReached.gameObject.SetActive(false);
         }
         else
         {

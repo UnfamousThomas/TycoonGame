@@ -16,6 +16,7 @@ public class BuildingInfoPresenter : MonoBehaviour
     public Button sellButton;
     public Button upgradeButton;
     public TextMeshProUGUI upgradeTime;
+    public TextMeshProUGUI upgradeTimeLeft;
 
     public ResourceCostPresenter goldPresenter;
     public ResourceCostPresenter ironPresenter;
@@ -163,15 +164,22 @@ public class BuildingInfoPresenter : MonoBehaviour
         if (business.upgradeTimeLeft > 0)
         {
             upgradeButton.interactable = false;
+            upgradeTimeLeft.text = "Upgrade Time Left: " + FormatTime(business.upgradeTimeLeft);
+            upgradeTimeLeft.enabled = true;
+        }
+        else
+        {
+            upgradeTimeLeft.enabled = false;
         }
 
         if (!upgradeButton.interactable)
         {
             upgradeButton.image.color = Color.red;
+            upgradeButton.gameObject.SetActive(false);
         }
         else
         {
-            upgradeButton.image.color = Color.white;
+            upgradeButton.image.color = Color.green;
         }
     }
 

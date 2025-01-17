@@ -146,6 +146,12 @@ public class BuildingInfoPresenter : MonoBehaviour
     
     private void CheckIfUpgrade(Business business)
     {
+        if ("Headquarters".Equals(buildingName.text))
+            sellButton.gameObject.SetActive(false);
+        else
+        {
+            sellButton.gameObject.SetActive(true);
+        }
         if (business.CanBeUpgraded())
         {
             upgradeButton.interactable = true;

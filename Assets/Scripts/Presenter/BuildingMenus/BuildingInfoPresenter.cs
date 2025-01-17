@@ -157,11 +157,13 @@ public class BuildingInfoPresenter : MonoBehaviour
         
         if (business.isUpgradable())
         {
+            upgradeButton.gameObject.SetActive(true);
             upgradeSection.gameObject.SetActive(true);
             maxLevelReached.gameObject.SetActive(false);
         }
         else
         {
+            upgradeButton.gameObject.SetActive(false);
             upgradeSection.gameObject.SetActive(false);
             maxLevelReached.gameObject.SetActive(true);
             upgradeTimeLeftComponent.gameObject.SetActive(false);
@@ -183,7 +185,6 @@ public class BuildingInfoPresenter : MonoBehaviour
         if (!upgradeButton.interactable)
         {
             upgradeButton.image.color = Color.red;
-            upgradeButton.gameObject.SetActive(false);
         }
         else
         {

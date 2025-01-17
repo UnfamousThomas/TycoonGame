@@ -132,7 +132,7 @@ public class TutorialController : MonoBehaviour
 
     public void onBusinessUpgrade(Business business)
     {
-        if (business.businessData.businessName == "Miner" && !_solarPanelBuilt && _headquartersBuilt && _upgradePanelSeen && _minerBuilt && !_minerUpgraded)
+        if (business.businessData.businessName == "Miner" && _solarPanelBuilt && _headquartersBuilt && _upgradePanelSeen && _minerBuilt && !_minerUpgraded)
         {
             minerUpgrade(business);
         }
@@ -144,6 +144,7 @@ public class TutorialController : MonoBehaviour
             "Congratulations! Your miner is now upgrading, you can click on it to learn when it is ready. From now on you are on your own, as I go have to go see my space family. Good luck!";
         _minerUpgraded = true;
         tutorialFinished = true;
+        basePanel.gameObject.SetActive(true);
     }
 
     private void minerBuilt(Business business)

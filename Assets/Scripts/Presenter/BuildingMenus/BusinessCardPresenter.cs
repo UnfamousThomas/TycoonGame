@@ -10,7 +10,7 @@ public class BusinessCardPresenter : MonoBehaviour
     public TextMeshProUGUI nameText;
     public Image iconImage;
 
-    private Button _button;
+    public Button _button;
     public BusinessController businessController;
     public BuildingsMenuInfoPresenter buildingsMenuInfo;
 

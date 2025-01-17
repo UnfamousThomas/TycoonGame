@@ -46,12 +46,14 @@ public class Business : MonoBehaviour
             upgradeTimeLeft -= Time.deltaTime;
             if (upgradeTimeLeft > 0)
             {
-                _animator.enabled = false;
+                if (_animator != null)
+                    _animator.enabled = false;
                 _spriteRenderer.sprite = businessData.upgradeSprite;
             }
             else
             {
-                _animator.enabled = true;
+                if (_animator != null)
+                    _animator.enabled = true;
                 _spriteRenderer.sprite = businessData.icon;
                 Events.FinishUpgradeBusiness(this);
             }

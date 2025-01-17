@@ -17,6 +17,8 @@ public class BuildingInfoPresenter : MonoBehaviour
     public Button upgradeButton;
     public TextMeshProUGUI upgradeTime;
     public TextMeshProUGUI upgradeTimeLeft;
+    public GameObject upgradeSection;
+    public GameObject maxLevelReached;
 
     public ResourceCostPresenter goldPresenter;
     public ResourceCostPresenter ironPresenter;
@@ -158,7 +160,8 @@ public class BuildingInfoPresenter : MonoBehaviour
         }
         else
         {
-            upgradeButton.gameObject.SetActive(false); 
+            upgradeSection.gameObject.SetActive(false);
+            maxLevelReached.gameObject.SetActive(true);
         }
 
         if (business.upgradeTimeLeft > 0)

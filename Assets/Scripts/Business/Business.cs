@@ -13,6 +13,7 @@ public class Business : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public float upgradeTimeLeft = 0;
     private SpawnedResource _floorResource;
+    private Animator _animator;
     
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class Business : MonoBehaviour
                 _floorResource = resource;
             }
         }
+        _animator = GetComponent<Animator>();
     }
 
     private void OnDestroy()
@@ -44,10 +46,12 @@ public class Business : MonoBehaviour
             upgradeTimeLeft -= Time.deltaTime;
             if (upgradeTimeLeft > 0)
             {
+                _animator.enabled = false;
                 _spriteRenderer.sprite = businessData.upgradeSprite;
             }
             else
             {
+                _animator.enabled = true;
                 _spriteRenderer.sprite = businessData.icon;
                 Events.FinishUpgradeBusiness(this);
             }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SwitchingSpriteImage : MonoBehaviour
 {
     private Image _image;
-    public float pulseSwitchTime;
+    public float pulseSwitchTime = 1;
 
     public Sprite spriteOne;
     public Sprite spriteTwo;
@@ -26,25 +26,19 @@ public class SwitchingSpriteImage : MonoBehaviour
         if (!isSwitching)
         {
             _image.sprite = spriteOne;
-            Debug.Log("one");
             return;
         }
 
         _timeSinceLastPulse += Time.deltaTime;
         if (_timeSinceLastPulse >= pulseSwitchTime)
         {
-            Debug.Log("two");
-
             _timeSinceLastPulse = 0;
             if (_image.sprite == spriteTwo)
             {
-                Debug.Log("three");
-
                 _image.sprite = spriteOne;
             }
             else
             {
-                Debug.Log("four");
                 _image.sprite = spriteTwo;
             }
         }

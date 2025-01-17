@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SwitchingColorImage : MonoBehaviour
 {
     private Image _image;
-    public float pulseSwitchTime;
+    public float pulseSwitchTime = 1;
 
     public Color colorOne = Color.white;
     public Color colorTwo = Color.blue;
@@ -26,25 +26,19 @@ public class SwitchingColorImage : MonoBehaviour
         if (!isGlowing)
         {
             _image.color = colorOne;
-            Debug.Log("one");
             return;
         }
 
         _timeSinceLastPulse += Time.deltaTime;
         if (_timeSinceLastPulse >= pulseSwitchTime)
         {
-            Debug.Log("two");
-
             _timeSinceLastPulse = 0;
             if (_image.color == colorTwo)
             {
-                Debug.Log("three");
-
                 _image.color = colorOne;
             }
             else
             {
-                Debug.Log("four");
                 _image.color = colorTwo;
             }
         }

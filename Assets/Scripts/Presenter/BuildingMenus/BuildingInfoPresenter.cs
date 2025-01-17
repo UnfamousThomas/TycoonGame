@@ -16,7 +16,8 @@ public class BuildingInfoPresenter : MonoBehaviour
     public Button sellButton;
     public Button upgradeButton;
     public TextMeshProUGUI upgradeTime;
-    public TextMeshProUGUI upgradeTimeLeft;
+    public GameObject upgradeTimeLeftComponent;
+    public TextMeshProUGUI upgradeTimeLeftText;
     public GameObject upgradeSection;
     public GameObject maxLevelReached;
 
@@ -163,17 +164,20 @@ public class BuildingInfoPresenter : MonoBehaviour
         {
             upgradeSection.gameObject.SetActive(false);
             maxLevelReached.gameObject.SetActive(true);
+            upgradeTimeLeftComponent.gameObject.SetActive(false);
+            return;
         }
 
         if (business.upgradeTimeLeft > 0)
         {
-            upgradeButton.interactable = false;
-            upgradeTimeLeft.text = "Upgrade Time Left: " + FormatTime(business.upgradeTimeLeft);
-            upgradeTimeLeft.enabled = true;
+            upgradeSection.gameObject.SetActive(false);
+            upgradeTimeLeftText.text = "Upgrade Time Left: " + FormatTime(business.upgradeTimeLeft);
+            upgradeTimeLeftComponent.gameObject.SetActive(true);
         }
         else
         {
-            upgradeTimeLeft.enabled = false;
+            upgradeTimeLeftComponent.gameObject.SetActive(false);
+            upgradeSection.gameObject.SetActive(true);
         }
 
         if (!upgradeButton.interactable)

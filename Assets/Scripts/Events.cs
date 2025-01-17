@@ -38,7 +38,11 @@ public static class Events
     public static event Action OnExitMenu;
     public static void ExitMenu() => OnExitMenu?.Invoke();
     
-    
+    // Tutorial
+    public static event Func<bool> onTutorialFinishedRequest;
+    public static bool TutorialFinishedRequest() => onTutorialFinishedRequest?.Invoke() ?? false;
+    public static event Action<bool> OnSetTutorialFinished;
+    public static void SetTutorialFinished(bool value) => OnSetTutorialFinished?.Invoke(value);
     
     
     

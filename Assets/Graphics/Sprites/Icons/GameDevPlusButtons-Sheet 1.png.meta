@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bff53e91de3e52e4fa147ec078526025
+guid: 3bf3f86de63a93c4fb0d0cb888d060ed
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameDevPlusButtons-Sheet_0
+      name: GameDevPlusButtons-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e13f6f5876d570047a8fb917e4fa85b0
-      internalID: -643432052
+      spriteID: 9262e855e7894764f831da8659eaa7b9
+      internalID: 1366278133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GameDevPlusButtons-Sheet_1
+      name: GameDevPlusButtons-Sheet 1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,8 +145,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfde54836c2486240b1902e3fe436094
-      internalID: 1538823781
+      spriteID: 2ac7ccebf8cd88940a184e1192c7cbdf
+      internalID: 949478516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GameDevPlusButtons-Sheet 1_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d39cd32c39bad7349a733307629bdcaa
+      internalID: 2123623305
       vertices: []
       indices: 
       edges: []
@@ -162,8 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GameDevPlusButtons-Sheet_0: -643432052
-      GameDevPlusButtons-Sheet_1: 1538823781
+      GameDevPlusButtons-Sheet 1_0: 1366278133
+      GameDevPlusButtons-Sheet 1_1: 949478516
+      GameDevPlusButtons-Sheet 1_2: 2123623305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

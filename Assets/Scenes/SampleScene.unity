@@ -3002,7 +3002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 379.2743, y: -168.923}
+  m_AnchoredPosition: {x: 379.15607, y: -168.923}
   m_SizeDelta: {x: 649.792, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351644422
@@ -93508,7 +93508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 379.2743, y: -279.861}
+  m_AnchoredPosition: {x: 379.15607, y: -279.861}
   m_SizeDelta: {x: 647.25, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1197184043
@@ -95793,7 +95793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 379.2743, y: -370.7615}
+  m_AnchoredPosition: {x: 379.15607, y: -370.7615}
   m_SizeDelta: {x: 641.364, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534420280
@@ -96635,6 +96635,7 @@ GameObject:
   - component: {fileID: 1611078114}
   - component: {fileID: 1611078113}
   - component: {fileID: 1611078116}
+  - component: {fileID: 1611078117}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -96725,7 +96726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1538823781, guid: bff53e91de3e52e4fa147ec078526025, type: 3}
+  m_Sprite: {fileID: 949478516, guid: 3bf3f86de63a93c4fb0d0cb888d060ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -96756,6 +96757,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openerCloser: {fileID: 871742346}
+--- !u!114 &1611078117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611078111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b254e1d61ff04041b40c1e91d09b6bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSwitchTime: 2
+  spriteOne: {fileID: 949478516, guid: 3bf3f86de63a93c4fb0d0cb888d060ed, type: 3}
+  spriteTwo: {fileID: 2123623305, guid: 3bf3f86de63a93c4fb0d0cb888d060ed, type: 3}
+  isSwitching: 1
 --- !u!1 &1636000669
 GameObject:
   m_ObjectHideFlags: 0
@@ -98267,7 +98284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 379.2743, y: -673.06995}
+  m_AnchoredPosition: {x: 379.15607, y: -673.06995}
   m_SizeDelta: {x: 673.375, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944139678

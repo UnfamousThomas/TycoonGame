@@ -6,6 +6,7 @@ public class SaveData
 {
     public List<BusinessSaveData> businessSaveData;
     public List<OreLocation> ores;
+    public bool tutorialFinished;
     public float level;
     public float money;
     public float rocks;

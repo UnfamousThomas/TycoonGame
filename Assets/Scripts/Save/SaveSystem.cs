@@ -32,7 +32,8 @@ public class SaveSystem
             iron = Events.RequestIron(),
             water = Events.RequestWater(),
             gold = Events.RequestGold(),
-            ores = Events.RequestOreLocations()
+            ores = Events.RequestOreLocations(),
+            tutorialFinished = Events.TutorialFinishedRequest()
         }, true);
         File.WriteAllText(savePath, json);
         Debug.Log($"Game saved to {savePath}");

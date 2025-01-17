@@ -13,13 +13,23 @@ MonoBehaviour:
   m_Name: Refinery
   m_EditorClassIdentifier: 
   businessName: Refinery
-  cost: []
-  baseUpgradeCost: []
+  cost:
+  - type: 5
+    value: 35000
+  - type: 2
+    value: 1000
+  baseUpgradeCost:
+  - type: 5
+    value: 400
+  - type: 4
+    value: 125
+  - type: 2
+    value: 100
   upgradeCostStep: 3500
   amountOfUpgrades: 10
   productionType: 0
-  baseProductionRate: 1
-  productionStep: 3
+  baseProductionRate: 5
+  productionStep: 1
   canBuildAnywhere: 0
   canBeBuiltOn: 04000000
   businessPrefab: {fileID: 6686919787794484536, guid: 10f8c5031661f4b709e3f91dada23e4e, type: 3}

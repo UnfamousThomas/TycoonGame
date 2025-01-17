@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: Solar Panel
   m_EditorClassIdentifier: 
   businessName: Solar Panel
-  cost: []
+  cost:
+  - type: 5
+    value: 20000
+  - type: 2
+    value: 10
   baseUpgradeCost:
-  - type: 0
-    value: 2
-  upgradeCostStep: 5
+  - type: 5
+    value: 200
+  - type: 2
+    value: 50
+  upgradeCostStep: 40
   amountOfUpgrades: 50
   productionType: 1
-  baseProductionRate: 3
-  productionStep: 5
+  baseProductionRate: 15
+  productionStep: 1
   canBuildAnywhere: 1
   canBeBuiltOn: 
   businessPrefab: {fileID: 5356509741301499797, guid: 64897bbf452c994438904a4b816f7d20, type: 3}

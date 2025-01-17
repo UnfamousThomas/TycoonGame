@@ -78,7 +78,7 @@ public class Business : MonoBehaviour
 
     public bool isUpgradable()
     {
-        if (level == businessData.amountOfUpgrades + 1) return false;
+        if (level >= businessData.amountOfUpgrades + 1) return false;
         return true;
     }
 

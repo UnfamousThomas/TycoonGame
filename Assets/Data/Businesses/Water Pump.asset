@@ -13,13 +13,23 @@ MonoBehaviour:
   m_Name: Water Pump
   m_EditorClassIdentifier: 
   businessName: Water Pump
-  cost: []
-  baseUpgradeCost: []
-  upgradeCostStep: 10
+  cost:
+  - type: 5
+    value: 10000
+  - type: 2
+    value: 200
+  baseUpgradeCost:
+  - type: 5
+    value: 1000
+  - type: 2
+    value: 150
+  - type: 3
+    value: 100
+  upgradeCostStep: 100
   amountOfUpgrades: 5
   productionType: 0
-  baseProductionRate: 3
-  productionStep: 5
+  baseProductionRate: 30
+  productionStep: 1
   canBuildAnywhere: 0
   canBeBuiltOn: 03000000
   businessPrefab: {fileID: 5356509741301499797, guid: 979a3ac81a94de643a32d7a3f52babce, type: 3}

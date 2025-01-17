@@ -13,13 +13,21 @@ MonoBehaviour:
   m_Name: Mailbox
   m_EditorClassIdentifier: 
   businessName: Mailbox
-  cost: []
-  baseUpgradeCost: []
-  upgradeCostStep: 3
+  cost:
+  - type: 5
+    value: 15
+  baseUpgradeCost:
+  - type: 5
+    value: 50
+  - type: 1
+    value: 50
+  - type: 4
+    value: 5
+  upgradeCostStep: 30
   amountOfUpgrades: 7
   productionType: 1
   baseProductionRate: 5
-  productionStep: 2
+  productionStep: 0.25
   canBuildAnywhere: 1
   canBeBuiltOn: 
   businessPrefab: {fileID: 4393733913066814621, guid: eb79bda838e7ad948af4abdadca8e604, type: 3}

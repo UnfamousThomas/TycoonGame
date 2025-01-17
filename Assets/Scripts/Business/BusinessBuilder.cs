@@ -58,7 +58,7 @@ public class BusinessBuilder : MonoBehaviour
         
         //Call the build method when the player presses left mouse button.
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && free)
             Build();
         if (Input.GetMouseButtonDown(1) || Input.GetButton("ExitMenu"))
             Exit();
@@ -97,6 +97,12 @@ public class BusinessBuilder : MonoBehaviour
                     }
                 }
             }
+
+            if (overlap.gameObject.GetComponent<Business>() != null)
+            {
+                found = false;
+            }
+            
             if (!overlap.isTrigger)
                 return false;
         }

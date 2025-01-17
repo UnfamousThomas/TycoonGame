@@ -15,13 +15,17 @@ MonoBehaviour:
   businessName: Miner
   cost:
   - type: 5
-    value: 10
-  baseUpgradeCost: []
-  upgradeCostStep: 300
+    value: 5000
+  baseUpgradeCost:
+  - type: 2
+    value: 200
+  - type: 3
+    value: 23
+  upgradeCostStep: 1000
   amountOfUpgrades: 10
   productionType: 0
-  baseProductionRate: 1
-  productionStep: 3
+  baseProductionRate: 2
+  productionStep: 0.6
   canBuildAnywhere: 0
   canBeBuiltOn: 000000000100000002000000
   businessPrefab: {fileID: 5356509741301499797, guid: 1f869349c748d174bb080f5f0483d1f4, type: 3}

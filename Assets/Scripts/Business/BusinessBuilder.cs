@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class BusinessBuilder : MonoBehaviour
     public Color AllowColor;
     public Color BlockColor;
     public ParticleSystem buildEffect;
+    public ScalingAnimation openAnimation;
+    public ScalingAnimation closeAnimation;
 
     private BusinessData _currentBusinessData;
     private SpriteRenderer _spriteRenderer;
@@ -17,6 +20,11 @@ public class BusinessBuilder : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         Events.OnBusinessSelected += OnBusinessSelected;
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        openAnimation.enabled = true;
     }
 
     private void OnDestroy()
@@ -52,8 +60,18 @@ public class BusinessBuilder : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
             Build();
-        if (Input.GetMouseButtonDown(1))
-            gameObject.SetActive(false);
+        if (Input.GetMouseButtonDown(1) || Input.GetButton("ExitMenu"))
+            Exit();
+    }
+
+    private void Exit()
+    {
+        closeAnimation.enabled = true;
+    }
+    
+    public void CloseFinished()
+    {
+        gameObject.SetActive(false);
     }
 
     bool IsFree(Vector3 pos)

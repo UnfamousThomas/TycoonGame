@@ -14,6 +14,7 @@ public class AvailableBuildingsPresenter : MonoBehaviour
     private List<BusinessCardPresenter> _presenters = new List<BusinessCardPresenter>();
     
     // Start is called before the first frame update
+    // If HQ is not the first in list, this whole system WILL collapse!
     void Start()
     {
         foreach (var business in displayedBusinesses)

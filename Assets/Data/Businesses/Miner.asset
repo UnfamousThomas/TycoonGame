@@ -19,6 +19,8 @@ MonoBehaviour:
   baseUpgradeCost:
   - type: 2
     value: 200
+  - type: 3
+    value: 23
   upgradeCostStep: 1000
   amountOfUpgrades: 10
   productionType: 0

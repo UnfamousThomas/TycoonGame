@@ -23,7 +23,7 @@ public class AvailableBuildingsPresenter : MonoBehaviour
             presenter.businessData = business;
             presenter.businessController = businessController;
             presenter.buildingsMenuInfo = buildingsMenuInfoPresenter;
-            if (!"Headquarters".Equals(business.businessName))
+            if (!businessController.isBusinessBuilt(displayedBusinesses[0]) && !"Headquarters".Equals(business.businessName))
                 presenter._button.interactable = false;
             _presenters.Add(presenter);
         }
@@ -31,7 +31,7 @@ public class AvailableBuildingsPresenter : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!businessController.isBusinessBuilt(displayedBusinesses[0]) && _presenters.Count <= 1)
+        if (!businessController.isBusinessBuilt(displayedBusinesses[0]))
             return;
         foreach (var presenter in _presenters)
         {

@@ -15,18 +15,14 @@ MonoBehaviour:
   businessName: Mailbox
   cost:
   - type: 5
-    value: 15
+    value: 50
   baseUpgradeCost:
   - type: 5
     value: 50
-  - type: 1
-    value: 50
-  - type: 4
-    value: 5
-  upgradeCostStep: 30
+  upgradeCostStep: 100
   amountOfUpgrades: 7
   productionType: 1
-  baseProductionRate: 5
+  baseProductionRate: 15
   productionStep: 0.25
   canBuildAnywhere: 1
   canBeBuiltOn: 

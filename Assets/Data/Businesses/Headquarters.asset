@@ -26,13 +26,13 @@ MonoBehaviour:
   - type: 3
     value: 100
   - type: 1
-    value: 5
+    value: 20
   - type: 0
     value: 20
   upgradeCostStep: 10000
   amountOfUpgrades: 10
   productionType: 1
-  baseProductionRate: 10
+  baseProductionRate: 20
   productionStep: 4
   canBuildAnywhere: 1
   canBeBuiltOn: 

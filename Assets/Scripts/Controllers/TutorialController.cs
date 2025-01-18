@@ -16,7 +16,7 @@ public class TutorialController : MonoBehaviour
     
     public AudioClipGroup clickSoundGroup;
 
-    private bool _solarPanelBuilt;
+    private bool _mailboxBuilt;
     private bool _headquartersBuilt;
     private bool _buildMenuFirstOpened;
     private bool _upgradePanelSeen;
@@ -86,7 +86,7 @@ public class TutorialController : MonoBehaviour
 
     private void onBusinessSelected(Business business)
     {
-        if(_solarPanelBuilt && business.businessData.businessName == "Solar Panel" && !_upgradePanelSeen) {
+        if(_mailboxBuilt && business.businessData.businessName == "Solar Panel" && !_upgradePanelSeen) {
             text.text =
                 "Here you can view different statistics about your building, such as level." +
                 " As well as what you need to upgrade it and how long it would take. Note that production of resources for said building " +
@@ -120,11 +120,11 @@ public class TutorialController : MonoBehaviour
             headquartersBuilt(business);
         }
 
-        if (business.businessData.businessName == "Solar Panel" && !_solarPanelBuilt && _headquartersBuilt)
+        if (business.businessData.businessName == "Mailbox" && !_mailboxBuilt && _headquartersBuilt)
         {
-            solarPanelBuilt(business);
+            mailboxBuilt(business);
         }
-        if (business.businessData.businessName == "Miner" && _solarPanelBuilt && _headquartersBuilt && _upgradePanelSeen && !_minerBuilt)
+        if (business.businessData.businessName == "Miner" && _mailboxBuilt && _headquartersBuilt && _upgradePanelSeen && !_minerBuilt)
         {
             minerBuilt(business);
         }
@@ -132,7 +132,7 @@ public class TutorialController : MonoBehaviour
 
     public void onBusinessUpgrade(Business business)
     {
-        if (business.businessData.businessName == "Miner" && _solarPanelBuilt && _headquartersBuilt && _upgradePanelSeen && _minerBuilt && !_minerUpgraded)
+        if (business.businessData.businessName == "Miner" && _mailboxBuilt && _headquartersBuilt && _upgradePanelSeen && _minerBuilt && !_minerUpgraded)
         {
             minerUpgrade(business);
         }
@@ -157,12 +157,12 @@ public class TutorialController : MonoBehaviour
         _minerBuilt = true;
     }
 
-    private void solarPanelBuilt(Business business)
+    private void mailboxBuilt(Business business)
     {
         text.text =
-            "Congratulations! You have build your second business, a solar panel. Please click on it to view information.";
+            "Congratulations! You have built your second business, a mailbox. Please click on it to view information.";
         basePanel.gameObject.SetActive(true);
-        _solarPanelBuilt = true;
+        _mailboxBuilt = true;
     }
 
     private void headquartersBuilt(Business business)
@@ -170,7 +170,7 @@ public class TutorialController : MonoBehaviour
         text.text =
             "Congratulations! You have build your first business, the headquarters." +
             "You will be building other buildings in the future." +
-            "For now, please build a solar panel.";
+            "For now, please build a mailbox.";
         basePanel.gameObject.SetActive(true);
         _headquartersBuilt = true;
     }

@@ -11,12 +11,12 @@ public abstract class ResourcePresenter : MonoBehaviour
     protected string FormatValue(float value)
     {
         if (value >= 1_000_000_000)
-            return (value / 1_000_000_000f).ToString("0.##") + " bln";
+            return (value / 1_000_000_000f).ToString("0.#") + " bln";
         else if (value >= 1_000_000)
-            return (value / 1_000_000f).ToString("0.##") + " mln";
+            return (value / 1_000_000f).ToString("0.#") + " mln";
         else if (value >= 1_000)
-            return (value / 1_000f).ToString("0.##") + "k";
+            return (value / 1_000f).ToString("0.#") + "k";
         else
-            return value.ToString("0.##");
+            return value.ToString("0.#");
     }
 }

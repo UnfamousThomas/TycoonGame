@@ -22,7 +22,7 @@ MonoBehaviour:
   upgradeCostStep: 100
   amountOfUpgrades: 7
   productionType: 1
-  baseProductionRate: 15
+  baseProductionRate: 20
   productionStep: 0.25
   canBuildAnywhere: 1
   canBeBuiltOn: 

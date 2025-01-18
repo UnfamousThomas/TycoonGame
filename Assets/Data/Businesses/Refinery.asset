@@ -17,7 +17,9 @@ MonoBehaviour:
   - type: 5
     value: 35000
   - type: 2
-    value: 1000
+    value: 100
+  - type: 1
+    value: 100
   baseUpgradeCost:
   - type: 5
     value: 400

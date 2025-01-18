@@ -33,7 +33,7 @@ MonoBehaviour:
   amountOfUpgrades: 10
   productionType: 1
   baseProductionRate: 20
-  productionStep: 4
+  productionStep: 5
   canBuildAnywhere: 1
   canBeBuiltOn: 
   businessPrefab: {fileID: 6686919787794484536, guid: c0af4b6c6f3b0ca4c832b67f55754ff8, type: 3}

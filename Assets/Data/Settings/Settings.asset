@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   audioTypeSettings:
-  - {fileID: 11400000, guid: a15ed48e714fec047af05b5197f8b627, type: 2}
   - {fileID: 11400000, guid: 93442c91643cc014ea54942b5892e7d3, type: 2}
   - {fileID: 11400000, guid: f8c166cd51a5bf34f8816aa8a82a2cea, type: 2}
   - {fileID: 11400000, guid: 7fed77c04bfc57942a7a143a4d39a409, type: 2}

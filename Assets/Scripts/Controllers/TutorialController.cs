@@ -86,7 +86,7 @@ public class TutorialController : MonoBehaviour
 
     private void onBusinessSelected(Business business)
     {
-        if(_mailboxBuilt && business.businessData.businessName == "Solar Panel" && !_upgradePanelSeen) {
+        if(_mailboxBuilt && business.businessData.businessName == "Mailbox" && !_upgradePanelSeen) {
             text.text =
                 "Here you can view different statistics about your building, such as level." +
                 " As well as what you need to upgrade it and how long it would take. Note that production of resources for said building " +

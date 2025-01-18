@@ -255,4 +255,10 @@ public class BuildingInfoPresenter : MonoBehaviour
             Exit();
         }
     }
+
+    public void CloseFinished()
+    {
+        if (!openAnimation.enabled)
+            gameObject.SetActive(false);
+    }
 }

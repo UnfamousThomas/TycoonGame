@@ -81,6 +81,7 @@ public class TutorialController : MonoBehaviour
                 "Here you can view and buy different buildings, which earn you resources. Some of them earn money, some of them can only be placed on a certain resource. Feel free to explore later! For now though, please build a HQ.";
             basePanel.gameObject.SetActive(true);
         }
+        Debug.Log("disabling");
         plusButton.Disable();
         _buildMenuFirstOpened = true;
     }

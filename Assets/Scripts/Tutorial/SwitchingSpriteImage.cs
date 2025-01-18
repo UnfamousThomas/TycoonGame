@@ -42,6 +42,7 @@ public class SwitchingSpriteImage : MonoBehaviour
 
         if (!isSwitching)
         {
+            Debug.Log("disable");
             _image.sprite = spriteOne;
             return;
         }

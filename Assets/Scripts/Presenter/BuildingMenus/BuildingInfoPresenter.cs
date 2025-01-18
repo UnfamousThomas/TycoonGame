@@ -16,6 +16,7 @@ public class BuildingInfoPresenter : MonoBehaviour
     public Button sellButton;
     public Button upgradeButton;
     public TextMeshProUGUI upgradeTime;
+    public TextMeshProUGUI levelText;
     public GameObject upgradeTimeLeftComponent;
     public TextMeshProUGUI upgradeTimeLeftText;
     public GameObject upgradeSection;
@@ -117,9 +118,21 @@ public class BuildingInfoPresenter : MonoBehaviour
         {
             CheckIfUpgrade(business);
             UpdateResourcePresenters(business);
+            UpdateLevel(business);
+            UpdateNextTime(business);
         }
     }
-    
+
+    private void UpdateNextTime(Business business)
+    {
+        upgradeTime.text = FormatTime(business.calculateNextUpgradeTime());
+    }
+
+    private void UpdateLevel(Business business)
+    {
+        levelText.text = "Level: " + (business.getLevel() + 1);
+    }
+
     private void onResourceUpdate(float value)
     {
         if(_selectedBusiness != null) {

@@ -91,7 +91,7 @@ public class BusinessController : MonoBehaviour
     {
         if (business.businessData.businessName == "Headquarters") //TODO needs better logic probably?
         {
-            Events.SetLevel(Events.RequestLevel()+1);
+            Events.SetLevel(business.getLevel()+1);
         }
     }
     

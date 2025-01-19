@@ -3694,6 +3694,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 315779e79f82e4b1f88e677a3715d24c, type: 2}
   - {fileID: 11400000, guid: 3b9faf66de915d5468c3e234d309f951, type: 2}
   - {fileID: 11400000, guid: 6db40bf153e749242bb14ab278a1b19e, type: 2}
+  - {fileID: 11400000, guid: a2e0265fad6b34b6390f9ab4e56b61d6, type: 2}
+  - {fileID: 11400000, guid: 3252f8ca5ea214a6db513bdb5171fbb7, type: 2}
   prefab: {fileID: 3708594148857112564, guid: 080ffdd1940019646bfe2adab296225c, type: 3}
   businessController: {fileID: 593776395}
   buildingsMenuInfoPresenter: {fileID: 372558164}
